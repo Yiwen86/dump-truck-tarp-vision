@@ -1,0 +1,422 @@
+﻿filename,has_truck,detection_source,truck_count,virtual_loop_occupied,virtual_loop_median,virtual_loop_bright_ratio
+frame_000000_jpg.rf.31fceb2002c1d84e6bc8a2aef6984a5d.jpg,YES,YOLO + Virtual Loop,1,YES,100.0,83.1%
+frame_000000_jpg.rf.3546349dfe0cefd84fd6938389cd685a.jpg,YES,Virtual Loop Only,1,YES,104.0,91.1%
+frame_000000_jpg.rf.ce877d008eb129a8ca4526999a4c3e4d.jpg,YES,YOLO + Virtual Loop,1,YES,119.0,99.7%
+frame_000000_jpg.rf.ed9654c7e6187e5d3c310bc546664fc0.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.1%
+frame_000001_jpg.rf.66c27dbae4a9ac37049e6b51a48024c3.jpg,YES,YOLO + Virtual Loop,1,YES,119.0,99.7%
+frame_000001_jpg.rf.8a487511047abd5435902d2ecf3e72f6.jpg,YES,Virtual Loop Only,1,YES,79.0,71.2%
+frame_000001_jpg.rf.9ee6d194e1c23d9d2d1a870bf0cbd1aa.jpg,YES,Virtual Loop Only,1,YES,110.0,95.0%
+frame_000001_jpg.rf.c25880bf30acd901170635fcb83ce292.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.3%
+frame_000002_jpg.rf.6adb671b8ac754514e19266f49b1eddc.jpg,YES,YOLO + Virtual Loop,1,YES,119.0,99.7%
+frame_000002_jpg.rf.c3065e9ac276b6a15d12ee0dc691ff7a.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.3%
+frame_000002_jpg.rf.d1d0db336d073555709d6e2d44eaeb98.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000002_jpg.rf.ea27c14f8c5be779a4c227ff3fa2d6af.jpg,YES,Virtual Loop Only,1,YES,109.0,95.1%
+frame_000003_jpg.rf.6df037f90808a68f089133906ccb4154.jpg,YES,Virtual Loop Only,1,YES,107.0,95.3%
+frame_000003_jpg.rf.9d6f539ca7639a3cf2cb8fc185f9c361.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.4%
+frame_000003_jpg.rf.c2b3e4ddfbf45de75278bf971032e0ce.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.3%
+frame_000003_jpg.rf.ff0cde0d2e18f4ca85f81bcffe4c9887.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000004_jpg.rf.067c6296807cf21c3fa7415195a7e67c.jpg,YES,Virtual Loop Only,1,YES,106.0,94.8%
+frame_000004_jpg.rf.1aa73c38bca3271b90539dd8a02aeafe.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000004_jpg.rf.a94dca2d9312a133da6f00d710e27342.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000004_jpg.rf.fb439cede848d292f4978314fe5cf985.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.4%
+frame_000005_jpg.rf.04df5f0c0ccc8029efc4d604cab57191.jpg,YES,YOLO + Virtual Loop,1,YES,82.0,73.4%
+frame_000005_jpg.rf.7edab670f5fe5e70ed8b8f328aa80d57.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.5%
+frame_000005_jpg.rf.8a2762a5e900b3ddef5a2e89695fbc0d.jpg,YES,Virtual Loop Only,1,YES,101.0,91.4%
+frame_000005_jpg.rf.c1c2df97c5234542f3add81ac9038759.jpg,YES,YOLO + Virtual Loop,1,YES,121.0,99.7%
+frame_000006_jpg.rf.168cc9b00f8fb946a9f094ba68d1f3a9.jpg,YES,Virtual Loop Only,1,YES,79.0,71.1%
+frame_000006_jpg.rf.390326f0ff6e943dbf57db8f6c75e33a.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.5%
+frame_000006_jpg.rf.5a4299164be3fe737cb62f9b0ce06d6e.jpg,YES,Virtual Loop Only,1,YES,100.0,91.1%
+frame_000006_jpg.rf.908edd532cd21e692302388f9904113e.jpg,YES,YOLO + Virtual Loop,1,YES,82.0,73.6%
+frame_000006_jpg.rf.f197b84893b62149bc129ac8a047c3c8.jpg,YES,YOLO + Virtual Loop,1,YES,121.0,99.7%
+frame_000007_jpg.rf.25ac5054d69e5c466e73784732ddb580.jpg,YES,Virtual Loop Only,1,YES,103.0,93.6%
+frame_000007_jpg.rf.431de3dd66866304b2d20b957d51c02f.jpg,YES,Virtual Loop Only,1,YES,79.0,70.9%
+frame_000007_jpg.rf.544c95cf4b469ed1bf88ab8f9653f6a7.jpg,YES,YOLO + Virtual Loop,1,YES,121.0,99.7%
+frame_000007_jpg.rf.826f272871edaa30c3e787978684d42c.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.5%
+frame_000007_jpg.rf.a5abe7cdb405bab4660e9e4c4f9975aa.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000008_jpg.rf.0cbd255dca83ab8340467996be826ae1.jpg,YES,Virtual Loop Only,1,YES,101.0,83.5%
+frame_000008_jpg.rf.36a2bbaaceb0837978151f710ec48162.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000008_jpg.rf.40d3ac2f80bf2c52e7c8afb0b461f77c.jpg,YES,YOLO + Virtual Loop,1,YES,121.0,99.7%
+frame_000008_jpg.rf.7df99e35fdce8d1a0b8145784118ed62.jpg,YES,Virtual Loop Only,1,YES,106.0,93.5%
+frame_000008_jpg.rf.9a7230b258932a3809210f0dd0206608.jpg,YES,Virtual Loop Only,1,YES,79.0,71.0%
+frame_000009_jpg.rf.12aef3f7c9739120229a674ebc23524c.jpg,YES,YOLO + Virtual Loop,1,YES,121.0,99.7%
+frame_000009_jpg.rf.136be9d65bdcf1c3cba8d40e17a053bd.jpg,YES,Virtual Loop Only,1,YES,109.0,94.5%
+frame_000009_jpg.rf.cee0d195e3f43258501ef850a99a390f.jpg,YES,Virtual Loop Only,1,YES,101.0,83.4%
+frame_000010_jpg.rf.4e63ced968a1ed7df55e70b66c48d359.jpg,YES,Virtual Loop Only,1,YES,109.0,94.8%
+frame_000010_jpg.rf.798adbd524f9aaf1beeaaee9fa720dc5.jpg,YES,Virtual Loop Only,1,YES,79.0,70.9%
+frame_000010_jpg.rf.9f9cb74926190d24f0838a06b16ddd40.jpg,YES,YOLO + Virtual Loop,1,YES,121.0,99.7%
+frame_000010_jpg.rf.aa16ea8e5670c7e43497bd35f66a5c78.jpg,YES,YOLO + Virtual Loop,1,YES,82.0,73.8%
+frame_000010_jpg.rf.d39bbf52af6b76e94c589fbef89be2e5.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000010_jpg.rf.deb90f61b635247fbe0b26fb2e76685c.jpg,YES,Virtual Loop Only,1,YES,101.0,83.4%
+frame_000011_jpg.rf.66c6f91d2b63529fd461028c22c75d70.jpg,YES,YOLO + Virtual Loop,1,YES,103.0,93.9%
+frame_000011_jpg.rf.b2ced54d3be05735810cbbb7f5afbe9a.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000011_jpg.rf.be072074a93d9793d3d1a3ec6b02762f.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.8%
+frame_000011_jpg.rf.ca1209573ae1e49a10bbb14d82accb71.jpg,YES,Virtual Loop Only,1,YES,101.0,83.2%
+frame_000011_jpg.rf.e572fe7cb958bdd25ae5faf46074ef4d.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000012_jpg.rf.074a414c37f1ae30982dff46c9bdc1b3.jpg,YES,YOLO + Virtual Loop,1,YES,121.0,99.7%
+frame_000012_jpg.rf.21c020a87f144c8d0604c432e65ca34c.jpg,YES,Virtual Loop Only,1,YES,104.0,93.1%
+frame_000012_jpg.rf.9d1f1ad7b56db281d395b8bb87cc5379.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000012_jpg.rf.9d8f89616c810ee8e3fb6a75c3e26dcd.jpg,YES,Virtual Loop Only,1,YES,101.0,83.0%
+frame_000012_jpg.rf.d6212ee0aae1df7ccc5dc8c019855c0d.jpg,YES,Virtual Loop Only,1,YES,79.0,71.0%
+frame_000013_jpg.rf.56ac925c47b8958aa755e4a69df9a4fe.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.9%
+frame_000013_jpg.rf.a7cb890409990cc9b762dab79cb3f371.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000013_jpg.rf.a9a43c43271e0b2c17e8ab47bff5d59c.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.8%
+frame_000013_jpg.rf.d540ff2570a70a7b562fafe1bd29c789.jpg,YES,Virtual Loop Only,1,YES,104.0,87.2%
+frame_000014_jpg.rf.0a30ce668150472610ac73f183258569.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,74.0%
+frame_000014_jpg.rf.189b5e2f064c380c896b5e759c9522db.jpg,YES,Virtual Loop Only,1,YES,79.0,71.0%
+frame_000014_jpg.rf.7220336ab2691b41294e9c94056c89f0.jpg,YES,Virtual Loop Only,1,YES,87.0,63.0%
+frame_000014_jpg.rf.94a9836b698193feb083806a37ad357e.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000014_jpg.rf.a39011a5458d9227d9b0710932d7cc16.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000014_jpg.rf.caf3addbca94f8b8e8f0f0c7a0ef057e.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000015_jpg.rf.0b505a3faa062e783bafd89fa0ff66e8.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000015_jpg.rf.4a897206d56487ce93fd57941a7f1839.jpg,YES,Virtual Loop Only,1,YES,77.0,52.8%
+frame_000015_jpg.rf.5fbf1539796842e78e689906d0bf9a44.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000015_jpg.rf.6fc77d09cff9200cf5b834639ac82cdc.jpg,YES,Virtual Loop Only,1,YES,79.0,71.0%
+frame_000015_jpg.rf.751fc3b4bea267be8955479731ed08e5.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.9%
+frame_000016_jpg.rf.949eafa906a136ba070ffa1fb003a471.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,82.7%
+frame_000016_jpg.rf.9673bdf0210d0dadbd9232f1bef2b483.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000016_jpg.rf.f09b2b0cc6392d59e085bd6055b88eba.jpg,NO,None,0,NO,44.0,36.0%
+frame_000016_jpg.rf.f652b66c36ea7cf7707aa275823ac81f.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.8%
+frame_000017_jpg.rf.2ac620dbfc198d4460b871b44d93b2fe.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000017_jpg.rf.42a2c40f89c9425f351b232306c5750d.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000017_jpg.rf.7a1a2fc59aec6ef3dcedc79463a68573.jpg,NO,None,0,NO,40.0,31.9%
+frame_000017_jpg.rf.d64298c6780019a9718a8f9108bac97c.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000018_jpg.rf.30d08f51dca8c753ca795a6f99921a5f.jpg,YES,Virtual Loop Only,1,YES,101.0,82.6%
+frame_000018_jpg.rf.4c97b0a9c93d39ca7dfe6af292e5dbf8.jpg,NO,None,0,NO,47.0,34.6%
+frame_000018_jpg.rf.9fc954f5f70016506f07b97b7ab9af8b.jpg,YES,YOLO + Virtual Loop,1,YES,120.0,99.7%
+frame_000019_jpg.rf.177c2726449c90a8bf6fd6ef953d51f2.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000019_jpg.rf.4141be099da23a8d8246489617367bc2.jpg,YES,YOLO + Virtual Loop,1,YES,116.0,99.7%
+frame_000019_jpg.rf.d81924d7a5bb9d5438c44e7a670b3d7e.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.6%
+frame_000019_jpg.rf.de5e5cd6e3d3c21b795adb25828d6656.jpg,NO,None,0,NO,48.0,34.6%
+frame_000020_jpg.rf.30c80201f0563896ec84f8e882cc38c6.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000020_jpg.rf.44b0a719a0f88a1cf77c8c43c5fc48aa.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000020_jpg.rf.713554dfb3ee8c21b8d7d1001abe80e8.jpg,YES,YOLO + Virtual Loop,1,YES,104.0,91.4%
+frame_000020_jpg.rf.892019e5961cae20215ab4cfe13b0359.jpg,YES,YOLO + Virtual Loop,2,YES,81.0,73.6%
+frame_000020_jpg.rf.8dbf7d5d5449aa7d7e8fc59616b0c57b.jpg,NO,None,0,NO,48.0,34.9%
+frame_000020_jpg.rf.9948761075ac4f21531d50536e77e7ed.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000021_jpg.rf.0e8a2cabda79fa39c96c9f920818700f.jpg,NO,None,0,NO,47.0,34.1%
+frame_000021_jpg.rf.4dd01081a845eade3833ea4416fcbb9c.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.6%
+frame_000021_jpg.rf.6a41702ef28fbdbee3e92bb9651e2b9f.jpg,YES,YOLO + Virtual Loop,1,YES,91.0,81.5%
+frame_000021_jpg.rf.d0babd5b45bc0255d013f184e6f11511.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000022_jpg.rf.4792173d9c2225caceb8a7668c9ca81e.jpg,YES,YOLO + Virtual Loop,1,YES,77.0,58.1%
+frame_000022_jpg.rf.a956444257520221626875a12fd50f79.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000022_jpg.rf.c624bff7ea317666af98254eb1d02b28.jpg,NO,None,0,NO,46.0,34.0%
+frame_000022_jpg.rf.dab85a05c95405934e3a77d5d93cab2b.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000023_jpg.rf.0abd0dd6b8d8cdac440741e17539d5a0.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.5%
+frame_000023_jpg.rf.4b8c97e491f8992e241c9ea4beb07089.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000023_jpg.rf.5fddb8b27d4c06116834d891271b106b.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000023_jpg.rf.9d8c9c5940575e466c381600fdb3402c.jpg,YES,YOLO + Virtual Loop,1,YES,77.0,57.3%
+frame_000023_jpg.rf.e5bb8010b9a6e4ce29b4bb8be68837ac.jpg,NO,None,0,NO,47.0,33.6%
+frame_000024_jpg.rf.0bd06af8f403d2c6d7bd9c2efa79cf67.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.6%
+frame_000024_jpg.rf.147be420062f51208960757bb62aba57.jpg,NO,None,0,NO,70.0,49.8%
+frame_000024_jpg.rf.6f720836e431a7df385c11fc0dafe6b2.jpg,NO,None,0,NO,47.0,33.7%
+frame_000024_jpg.rf.77b37be83e035588f7377d95282b1cf9.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000024_jpg.rf.ea5af9b8c7358b9fbbf58f62c3a35e24.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000025_jpg.rf.6c46d3584c3a6065cbf3005dd86c4393.jpg,NO,None,0,NO,57.0,38.7%
+frame_000025_jpg.rf.919ba10ab4ddb8f996baa3e31d5cf7c0.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.6%
+frame_000025_jpg.rf.dec6aec8da913f63de13528f00ef3656.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000025_jpg.rf.eb4d45a9ef6dffaef575b3ec1d0a1f2b.jpg,NO,None,0,NO,47.0,33.7%
+frame_000026_jpg.rf.43d940a13b2d27d9731e99a9cdbe2a9b.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.7%
+frame_000026_jpg.rf.8014c5cb57395d078932fafa00b705c5.jpg,NO,None,0,NO,48.0,33.8%
+frame_000026_jpg.rf.9de9be9df73b5514ce1a38ead3bd75cc.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000026_jpg.rf.c777bc76dad61e2d65a53fc8579f1631.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000026_jpg.rf.d0add65b586b2b20e075eb6bd2812eb6.jpg,NO,None,0,NO,68.0,47.7%
+frame_000027_jpg.rf.91e034d6aefb38837712f71b202c68d0.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.9%
+frame_000027_jpg.rf.97f9d0eb8ca67bec4e97d2fde6f09532.jpg,NO,None,0,NO,47.0,33.7%
+frame_000027_jpg.rf.bbe0b3166aa4abbfe88fe4f8d92b06a0.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000027_jpg.rf.e45445f5a51a4a65f3eeddf592c26fc8.jpg,YES,YOLO + Virtual Loop,2,YES,81.0,73.7%
+frame_000027_jpg.rf.f812e920b5d3ba36655c779a4df2dca6.jpg,YES,Virtual Loop Only,1,YES,72.0,51.7%
+frame_000028_jpg.rf.0470b828741d693b44f5e2bb313de347.jpg,NO,None,0,NO,47.0,33.8%
+frame_000028_jpg.rf.371a226f50f4656d752783bd0322a3eb.jpg,YES,Virtual Loop Only,1,YES,72.0,51.7%
+frame_000028_jpg.rf.80d65c041fee8593654ce616a79f4bfe.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000028_jpg.rf.a5f4482a18609e24c17197187304d391.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000028_jpg.rf.fb015745d7872a3efa4e3ec7ee840eb3.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000029_jpg.rf.0ef1ac5a5e336cb61de2ea44500d77c0.jpg,YES,Virtual Loop Only,1,YES,72.0,52.0%
+frame_000029_jpg.rf.1c9d5fddbed77fd228ae27fa3915598e.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.5%
+frame_000029_jpg.rf.3c171fee5cb17555e86f1732247e7ab2.jpg,NO,None,0,NO,47.0,33.9%
+frame_000029_jpg.rf.5e53f545079402b56f57c8e0bb5a6a3d.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.9%
+frame_000030_jpg.rf.349059745610833da5d1d090636ffaa4.jpg,NO,None,0,NO,46.0,33.8%
+frame_000030_jpg.rf.4c2192286d9e01d2732617bb38913bbd.jpg,YES,Virtual Loop Only,1,YES,72.0,52.1%
+frame_000030_jpg.rf.59cbe0fb9649219e5258fddfe02985bd.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,82.9%
+frame_000030_jpg.rf.a26bae876f4274347eb845dd7dd17b1e.jpg,YES,Virtual Loop Only,1,YES,79.0,70.4%
+frame_000031_jpg.rf.13463ad3428e0a77a00f785988d3a32f.jpg,YES,Virtual Loop Only,1,YES,73.0,52.6%
+frame_000031_jpg.rf.14fe362eb5e74cda9cf8b7aae450153f.jpg,NO,None,0,NO,47.0,33.7%
+frame_000031_jpg.rf.cf309c275356e1d8b2ff8e8da460b1c8.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,83.1%
+frame_000032_jpg.rf.016c4a8c698d55bf0d6fc3ea18fc5f3f.jpg,NO,None,0,NO,46.0,33.8%
+frame_000032_jpg.rf.17437db760a687012dcee4595501349e.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,83.1%
+frame_000032_jpg.rf.695ee63ba9e9a749cdced600cce08a7c.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.4%
+frame_000032_jpg.rf.d9618f1a0431a9dda87c12f59541bbb9.jpg,YES,Virtual Loop Only,1,YES,73.0,53.0%
+frame_000032_jpg.rf.e326a4279d015a166a43b3ce166f544e.jpg,YES,Virtual Loop Only,1,YES,79.0,70.6%
+frame_000033_jpg.rf.08e1a5a935368f96f6de96782d7ed794.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.2%
+frame_000033_jpg.rf.815aa1720439a205ae92eb38614f4eba.jpg,NO,None,0,NO,46.0,33.6%
+frame_000033_jpg.rf.ee2f4958986828cd3459640e1698f6cf.jpg,YES,Virtual Loop Only,1,YES,73.0,53.1%
+frame_000033_jpg.rf.fb43224464d4ec1ebf413532d0c400b1.jpg,YES,YOLO + Virtual Loop,2,YES,81.0,73.4%
+frame_000034_jpg.rf.4f8f4dfff4e211838cad9940665fcb69.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000034_jpg.rf.6375ab7bfaf13aca0f47f2e35f9d30e0.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.2%
+frame_000034_jpg.rf.946ab6c3093e85359b7a49da742b1fc8.jpg,YES,Virtual Loop Only,1,YES,73.0,52.3%
+frame_000034_jpg.rf.aca28d506373670c9c7633e4a744b477.jpg,NO,None,0,NO,46.0,33.7%
+frame_000034_jpg.rf.dd017ec1b51a558dbeb4460b906844a0.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000035_jpg.rf.386ffa9e5bd84ff9b385ce4dc656eac9.jpg,NO,None,0,NO,46.0,33.5%
+frame_000035_jpg.rf.4db34994594f5db597be989e665b85d1.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,83.2%
+frame_000035_jpg.rf.5ac85adc0657e3e6c4c48da35365ceb8.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000035_jpg.rf.a0267a9d6a4cfa83d4ef56bc9aba13d8.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.3%
+frame_000035_jpg.rf.b5f25f34a90224efbea0c793b3d56933.jpg,YES,Virtual Loop Only,1,YES,73.0,52.9%
+frame_000036_jpg.rf.1350d31f641118552f131a4de7ead7ca.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.3%
+frame_000036_jpg.rf.1ccca2ce6049878ab22fb2339da51335.jpg,YES,Virtual Loop Only,1,YES,73.0,52.3%
+frame_000036_jpg.rf.aee38a509d0cd614976eb7107a9cedd1.jpg,NO,None,0,NO,46.0,33.5%
+frame_000036_jpg.rf.bb395f58275a4374561830d25868ef6b.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.2%
+frame_000036_jpg.rf.c0da93314a45d92cfee5fa4fe5573fa1.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000037_jpg.rf.396f901f22b6305427abf108d4fbcef3.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000037_jpg.rf.7f919e76a6a6a0efbffbf36f7d0f4b21.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000037_jpg.rf.7f937242ab7d1cf0e8b6c0bc782f7b02.jpg,NO,None,0,NO,47.0,33.6%
+frame_000037_jpg.rf.aeeee5d066f72ae01f99cdd158a6591f.jpg,YES,YOLO + Virtual Loop,3,YES,81.0,73.3%
+frame_000037_jpg.rf.bcbe1c714e60f3da0f4b0129b98346cd.jpg,YES,Virtual Loop Only,1,YES,73.0,53.0%
+frame_000037_jpg.rf.d28d017466d337d64b8a8dab949c4be0.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.3%
+frame_000038_jpg.rf.224db02ccd8fe78e26b6beecf565884c.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000038_jpg.rf.68f82413e9b665961fef60be475876a3.jpg,YES,Virtual Loop Only,1,YES,73.0,53.3%
+frame_000038_jpg.rf.80fb2b31a545f43d34e7611a7937e506.jpg,YES,Virtual Loop Only,1,YES,101.0,83.3%
+frame_000038_jpg.rf.d73e2048bf1aa14a909cb4b555448f75.jpg,NO,None,0,NO,47.0,33.6%
+frame_000039_jpg.rf.47bf03c2b635409399d611c4c4dbabb8.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000039_jpg.rf.5fbdca1f7f9528044824cdbef5977675.jpg,YES,Virtual Loop Only,1,YES,73.0,53.5%
+frame_000039_jpg.rf.9d69109f0c53c65302a0597fb272f3e4.jpg,NO,None,0,NO,47.0,33.8%
+frame_000039_jpg.rf.b766c16aa334943d0d61581852d9d009.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.1%
+frame_000039_jpg.rf.deb981a16dbddac872bc28e228506362.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.0%
+frame_000040_jpg.rf.3e815e6a254adaeb0cf34aa8d1fc9f69.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.2%
+frame_000040_jpg.rf.7c37361831d36dc1d1381a4fc3e5a08a.jpg,NO,None,0,NO,47.0,33.8%
+frame_000040_jpg.rf.e45d869e1a0864e44b4fc323582cf882.jpg,YES,Virtual Loop Only,1,YES,73.0,53.3%
+frame_000040_jpg.rf.eb434042c25604ad3cbfe919659d837c.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.9%
+frame_000041_jpg.rf.03733800e9721fd05c983e3a6433bdbd.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.0%
+frame_000041_jpg.rf.2765a859bca788c4b54b2a8772213604.jpg,NO,None,0,NO,47.0,33.6%
+frame_000041_jpg.rf.b521fa42f58841874f5f46ceafaaa12d.jpg,YES,Virtual Loop Only,1,YES,79.0,70.6%
+frame_000041_jpg.rf.e3f5805765ad6aeab131e650369476ee.jpg,YES,Virtual Loop Only,1,YES,74.0,53.4%
+frame_000042_jpg.rf.5ea9fc7727e76f6739bfc1b60a476a62.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.9%
+frame_000042_jpg.rf.d77f0dfec103ff9627145921978db508.jpg,NO,None,0,NO,47.0,33.6%
+frame_000042_jpg.rf.ed4882698a2b7ae7eba0b9fcd17c62ea.jpg,YES,Virtual Loop Only,1,YES,73.0,53.4%
+frame_000042_jpg.rf.f46643b893d90562599d64e7f1658b1b.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.3%
+frame_000043_jpg.rf.6feeefceac6fef5e6111c8cd9048e183.jpg,NO,None,0,NO,47.0,33.7%
+frame_000043_jpg.rf.b064b18f9b60a1c14973011ea550d16f.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000043_jpg.rf.cb7a38fb38fc5f894a047873dc2d70b4.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.2%
+frame_000043_jpg.rf.d5e11bcacda802b93053596dbea33ed5.jpg,YES,Virtual Loop Only,1,YES,74.0,53.7%
+frame_000044_jpg.rf.025727ee98f79f008bb9575fd3df134e.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000044_jpg.rf.2b72559c3fd4838b1f619bb9c2759c95.jpg,NO,None,0,NO,47.0,33.7%
+frame_000044_jpg.rf.2e3628b1557293f9564e5ce27dd2bab9.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000044_jpg.rf.74b7439c7975c20664fc7a18fa14c160.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000044_jpg.rf.9a19394efdb6c16f837d92293116552e.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.2%
+frame_000044_jpg.rf.c3a5dd812de08bc9577c2277c22c85cc.jpg,YES,Virtual Loop Only,1,YES,74.0,53.4%
+frame_000045_jpg.rf.03f0671655171e88ac047f6a5614875b.jpg,NO,None,0,NO,47.0,33.8%
+frame_000045_jpg.rf.2a72475f9a73b989ca8b3cce0d407bb7.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.2%
+frame_000045_jpg.rf.6b6d3a9372987066e3d17285719c4f33.jpg,YES,Virtual Loop Only,1,YES,74.0,54.1%
+frame_000045_jpg.rf.96a7ebd72e25bf4ebaa4ae2463809f61.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000045_jpg.rf.fb9cdff46fd9c94a30d4f6294b6fe283.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.2%
+frame_000046_jpg.rf.425657a027e2ad8a94d6372f8e5cb724.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.2%
+frame_000046_jpg.rf.65f395bf10cdd85e88d041e511f5d34f.jpg,NO,None,0,NO,47.0,33.9%
+frame_000046_jpg.rf.82144090ce5086382877085d14e1d41a.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.1%
+frame_000046_jpg.rf.913ea299843b56a94ef19d2369b747f6.jpg,YES,Virtual Loop Only,1,YES,74.0,54.1%
+frame_000046_jpg.rf.a7b2734b025d84e1b7e882f37e18cb2c.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000047_jpg.rf.10fd30efb56b39b146939637ac793dd9.jpg,YES,Virtual Loop Only,1,YES,74.0,54.2%
+frame_000047_jpg.rf.219551b97352ad6fa1496a5e898c28a3.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000047_jpg.rf.72e7444909d48241105b66133e3037f8.jpg,NO,None,0,NO,47.0,33.8%
+frame_000047_jpg.rf.ceb0e1d1fa1b45e54a4ede084438f183.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000048_jpg.rf.151e386e4240b0707563ed21f4d99cd6.jpg,YES,Virtual Loop Only,1,YES,101.0,83.1%
+frame_000048_jpg.rf.267f06c26b88bf52003656a12a1a52b8.jpg,YES,Virtual Loop Only,1,YES,74.0,54.1%
+frame_000048_jpg.rf.52d5ec297b68c797416629805173bfc0.jpg,YES,Virtual Loop Only,1,YES,81.0,73.1%
+frame_000048_jpg.rf.5c534c14fb5e0591c6a2072045f31d2f.jpg,YES,Virtual Loop Only,1,YES,152.0,99.9%
+frame_000048_jpg.rf.666155d075f2590fcea5288e6bea63ff.jpg,NO,None,0,NO,47.0,33.7%
+frame_000048_jpg.rf.d2455446f3635f84208646495814b2e6.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000049_jpg.rf.0b353f28c85ee993d4b4101f3954008f.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000049_jpg.rf.0c8e092abfcf425ece0ff37b3f49e4e8.jpg,YES,Virtual Loop Only,1,YES,75.0,54.5%
+frame_000049_jpg.rf.78b22b8d62d78fa42872554cc6fc8bb6.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000049_jpg.rf.92d5c4c7c5b454ed56748bca9ea1e54f.jpg,NO,None,0,NO,47.0,33.7%
+frame_000050_jpg.rf.2801b404fc0368fe58a3b3b3370cf07d.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.0%
+frame_000050_jpg.rf.4390798ab992856fae225b0ab1f88a19.jpg,NO,None,0,NO,47.0,33.6%
+frame_000050_jpg.rf.b831f23bac15e03c26a6caf190fb33c7.jpg,YES,Virtual Loop Only,1,YES,74.0,54.4%
+frame_000051_jpg.rf.09cc9ebaa0d5f7b57b8c267905d109c6.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000051_jpg.rf.1b86fe19b3fb8183880bb192f2cd43f7.jpg,YES,Virtual Loop Only,1,YES,75.0,54.6%
+frame_000051_jpg.rf.6b4b371620455a6a9241320bfb230ad0.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.1%
+frame_000051_jpg.rf.eb5c1a054139f5ea74ca438768d161da.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000051_jpg.rf.f5532fee6f9b06d187584fc194e2cf0b.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000052_jpg.rf.76bd069baac561fff037801888e5cebd.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000052_jpg.rf.7b029249029cd5cfb28a146b02a73481.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000052_jpg.rf.858d02ce16f726116039424797c711f0.jpg,YES,Virtual Loop Only,1,YES,75.0,54.7%
+frame_000052_jpg.rf.a892f6e852156e907ef4106ca5312817.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000053_jpg.rf.9d6d9f99a007316234b46616bcdf82a8.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.1%
+frame_000053_jpg.rf.af0f2e3eedcb42571aa4c155990e6286.jpg,YES,Virtual Loop Only,1,YES,79.0,70.6%
+frame_000053_jpg.rf.bbd0b20f1441d2adc835e2544f6caf2c.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000053_jpg.rf.de63e3476218f5cc9cf212c2d5e45f6d.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000053_jpg.rf.fb18f38101698dea4e8c1b5a0ed3da03.jpg,YES,Virtual Loop Only,1,YES,75.0,55.2%
+frame_000054_jpg.rf.4c8a54c82750cedbd1dd19f9a51e2a28.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.3%
+frame_000054_jpg.rf.71f27ab3e6c043b96ed46cae3bfb7932.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000054_jpg.rf.9cb13cd8712032fed8e6fae8f749f2ee.jpg,YES,Virtual Loop Only,1,YES,75.0,55.2%
+frame_000054_jpg.rf.f400bc8fe5fe36c23048b5b0542353d0.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000055_jpg.rf.1c08595ba6c314d956df329699f2bca0.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000055_jpg.rf.55ec6a9cf0a9ca09cb53559360abebb4.jpg,YES,Virtual Loop Only,1,YES,76.0,55.6%
+frame_000055_jpg.rf.6ddeb1c4afe2aea7dfb8868692a00552.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000055_jpg.rf.ece2cb2bf6d050d08aedf247f4bffa5f.jpg,YES,Virtual Loop Only,1,YES,79.0,70.5%
+frame_000056_jpg.rf.943cec15531b6b35b9717836ddd565e2.jpg,YES,Virtual Loop Only,1,YES,76.0,55.9%
+frame_000056_jpg.rf.b6f068046b30aca3e28200a1caf0df74.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,83.1%
+frame_000056_jpg.rf.c6233d208d91ca7ec39a0d7e38339e3f.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000057_jpg.rf.0db07a073fa28b6e330fc4d55534842a.jpg,YES,Virtual Loop Only,1,YES,79.0,70.7%
+frame_000057_jpg.rf.24f285fbe5800aa5f75dcbd75eff059a.jpg,YES,Virtual Loop Only,1,YES,76.0,56.1%
+frame_000057_jpg.rf.36196d5b9ec3b3740f909f93bf3526dc.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.8%
+frame_000057_jpg.rf.3c36b2c95b17c45005ae23f67d65e56a.jpg,YES,YOLO + Virtual Loop,1,YES,81.0,73.0%
+frame_000058_jpg.rf.3e45a1a4486f239722a8a21b23429bae.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.6%
+frame_000058_jpg.rf.80832f16a3fa759e019b21d3cd5c1f98.jpg,YES,Virtual Loop Only,1,YES,76.0,55.9%
+frame_000059_jpg.rf.1d5bd6731f76c1b352ce63472e4804d3.jpg,YES,Virtual Loop Only,1,YES,79.0,70.3%
+frame_000059_jpg.rf.20f35e12d066405777dd64bd14d78a1c.jpg,YES,Virtual Loop Only,1,YES,77.0,56.3%
+frame_000059_jpg.rf.3edc9be5f0deae52c556761350b713e1.jpg,YES,YOLO + Virtual Loop,2,YES,81.0,73.0%
+frame_000059_jpg.rf.99abd53a1321f6418391d8d4c406dce1.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.6%
+frame_000060_jpg.rf.85e79d8832fe3ed25822f8286a30d1c7.jpg,YES,Virtual Loop Only,1,YES,76.0,56.3%
+frame_000060_jpg.rf.87da673c6ebc02ae7d78229871847a03.jpg,YES,Virtual Loop Only,1,YES,101.0,82.6%
+frame_000061_jpg.rf.585db354d8e6a6b50708f9879521a5ce.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000061_jpg.rf.6db3b6c8e1d5304f6c2ee4fb94b16446.jpg,YES,Virtual Loop Only,1,YES,79.0,70.3%
+frame_000061_jpg.rf.808d3327ecc87caa4dde6a2dbc856221.jpg,YES,Virtual Loop Only,1,YES,77.0,56.7%
+frame_000062_jpg.rf.3970ce3eb81959ce533e8e6135a3be78.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000062_jpg.rf.7a6e77680897749e123559e4c8cdec8b.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000062_jpg.rf.c7651f65cbe3719ff49515ced61c04b5.jpg,YES,Virtual Loop Only,1,YES,77.0,56.7%
+frame_000062_jpg.rf.e3b55b5cad0d218d332ef4c7b1cb94b5.jpg,YES,Virtual Loop Only,1,YES,79.0,70.3%
+frame_000063_jpg.rf.1daacb916bd6ec61c8505d6fecf88fb2.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000063_jpg.rf.906c392d539c7f7b5eb0e55c3b610427.jpg,YES,Virtual Loop Only,1,YES,79.0,70.6%
+frame_000063_jpg.rf.bd298974bc8d415f0d19e509ef5b3040.jpg,YES,Virtual Loop Only,1,YES,77.0,57.2%
+frame_000063_jpg.rf.d0dea87e1fa5919c85f5393ede31a5d8.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,82.7%
+frame_000064_jpg.rf.49577e8bc7a811fe6f584dc19c8306ee.jpg,YES,YOLO + Virtual Loop,2,YES,100.0,82.6%
+frame_000064_jpg.rf.bc59f9a837dd52a702ef72730f5cd9a0.jpg,YES,Virtual Loop Only,1,YES,78.0,57.6%
+frame_000064_jpg.rf.db56cbd6138998501209254a3e5c0c4a.jpg,YES,Virtual Loop Only,1,YES,79.0,70.3%
+frame_000064_jpg.rf.e66e993c10bfb6401abf2d11ac4073c1.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000065_jpg.rf.16608d89b96de6ab701dd52fee090c2c.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,82.7%
+frame_000065_jpg.rf.39657bd91bc74b91ca0890556ea0361b.jpg,YES,Virtual Loop Only,1,YES,78.0,57.9%
+frame_000066_jpg.rf.1f6cbc3b282e207550a6a170e3302223.jpg,YES,Virtual Loop Only,1,YES,78.0,58.1%
+frame_000066_jpg.rf.b1851b3039c2ec284ab6f390d4e14c27.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.6%
+frame_000067_jpg.rf.abf7909970244b0aa2e01a09c427b014.jpg,YES,Virtual Loop Only,1,YES,80.0,59.7%
+frame_000067_jpg.rf.b76f045d94f7e659adf41d125085c829.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,82.6%
+frame_000068_jpg.rf.3b31eade4e8cbb12df4dbfc1e61bee27.jpg,YES,Virtual Loop Only,1,YES,81.0,61.6%
+frame_000068_jpg.rf.6c8f59afab30af8127347f0933c6d0c1.jpg,YES,YOLO + Virtual Loop,2,YES,101.0,82.6%
+frame_000068_jpg.rf.82b3a8a164b666df1f6d2194a061ed66.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000068_jpg.rf.e72fbe692b55df9a7267497bf64e7158.jpg,YES,Virtual Loop Only,1,YES,79.0,70.5%
+frame_000069_jpg.rf.214a6db3c1ad681406509e09a7398fee.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000069_jpg.rf.79783f4a64939bddea689ffff5521b02.jpg,YES,Virtual Loop Only,1,YES,83.0,63.1%
+frame_000069_jpg.rf.81cda9fc5f19a7eea8917beac9b95bef.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000070_jpg.rf.1bd23abdaadd6244ddc342324049326a.jpg,YES,Virtual Loop Only,1,YES,85.0,63.4%
+frame_000070_jpg.rf.3b9cb75a010c215e3af1b3a6a69dcf85.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.7%
+frame_000070_jpg.rf.6fd6e9d0d8aadd4a438f86e1d2039c7a.jpg,YES,Virtual Loop Only,1,YES,79.0,70.3%
+frame_000071_jpg.rf.069683d7100b8ed8554bff9188c18e4b.jpg,YES,Virtual Loop Only,1,YES,86.0,63.2%
+frame_000071_jpg.rf.291a8e7725757b64ae86dc33a608df80.jpg,YES,YOLO + Virtual Loop,1,YES,100.0,81.3%
+frame_000071_jpg.rf.6997ca0943fb1319587fe671ae0e3cd7.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000072_jpg.rf.015c9e8b11ecc07b05fb744754e80028.jpg,YES,Virtual Loop Only,1,YES,86.0,63.0%
+frame_000072_jpg.rf.81ec295283eb76a5a27f2387f266bee8.jpg,YES,Virtual Loop Only,1,YES,79.0,70.2%
+frame_000072_jpg.rf.9ad51cd3c69802a433cfd5d5491900ed.jpg,YES,YOLO + Virtual Loop,2,YES,100.0,78.4%
+frame_000073_jpg.rf.613ec9290ad437d7fdbc2d57d1361c92.jpg,YES,YOLO + Virtual Loop,1,YES,100.0,78.8%
+frame_000073_jpg.rf.685d7f4a35137d205bde44a5f330b560.jpg,YES,Virtual Loop Only,1,YES,85.0,62.8%
+frame_000073_jpg.rf.f60ab260ff0440f316f1980763915bf7.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000074_jpg.rf.a30b533fda03c30a496a513187243a27.jpg,YES,Virtual Loop Only,1,YES,85.0,62.6%
+frame_000074_jpg.rf.f2761d4a457f61d9cad9519eece49933.jpg,YES,YOLO + Virtual Loop,1,YES,100.0,78.4%
+frame_000075_jpg.rf.27d41c8772401d072335d8185c040a57.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000075_jpg.rf.8d30973d85421e0aefb7f306a1551bed.jpg,YES,YOLO + Virtual Loop,2,YES,75.0,55.6%
+frame_000075_jpg.rf.a5ae6b0cee1bdd8a8d9d23a11f522fef.jpg,YES,Virtual Loop Only,1,YES,101.0,78.8%
+frame_000076_jpg.rf.1b5ecd743120a38eecb470449e5c0a40.jpg,YES,Virtual Loop Only,1,YES,100.0,79.8%
+frame_000076_jpg.rf.8fc29b2d3dfff4c8d1140f9403146309.jpg,YES,YOLO + Virtual Loop,2,YES,75.0,55.6%
+frame_000076_jpg.rf.f3aba2f16fbe47f372a31f0e174133ec.jpg,YES,Virtual Loop Only,1,YES,79.0,70.1%
+frame_000077_jpg.rf.4d37e4004f7de9d338a643c041357817.jpg,YES,YOLO + Virtual Loop,1,YES,101.0,82.4%
+frame_000077_jpg.rf.81e0eea5ee27c5fb69ef455fe3569efc.jpg,YES,YOLO + Virtual Loop,3,YES,75.0,55.5%
+frame_000077_jpg.rf.b61ceeeaf54ff1400ac5348ca477bb10.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000078_jpg.rf.0bb07b21f45e9e7b10a5e182bc6785cc.jpg,YES,YOLO + Virtual Loop,1,YES,118.0,85.9%
+frame_000078_jpg.rf.2ce7fb26ec47a8e0ff401b6367e8fdfe.jpg,YES,Virtual Loop Only,1,YES,79.0,70.3%
+frame_000078_jpg.rf.b81161f9bafdb92d2e47a2b79566cecc.jpg,YES,YOLO + Virtual Loop,3,YES,71.0,51.4%
+frame_000079_jpg.rf.292f2df19b97bfd2033c2c4278dca10b.jpg,YES,YOLO Only,3,NO,65.0,38.1%
+frame_000079_jpg.rf.915ae02408a8d717e3ef1d707711b06d.jpg,YES,Virtual Loop Only,1,YES,79.0,70.2%
+frame_000079_jpg.rf.b6d9c4e9608bd84d06bdcac84e10d76d.jpg,YES,YOLO + Virtual Loop,2,YES,120.0,83.6%
+frame_000080_jpg.rf.a9cf2021262cd0f72ad556dd800aa49f.jpg,YES,YOLO Only,3,NO,63.0,31.6%
+frame_000080_jpg.rf.faa257187ba82af76c51ca06361f1be7.jpg,YES,YOLO + Virtual Loop,2,YES,118.0,80.1%
+frame_000081_jpg.rf.9eb59096e2a091f234b441938d05411c.jpg,YES,YOLO Only,4,NO,67.0,42.3%
+frame_000081_jpg.rf.a40aaffa715f9da48292ff5f5ca3aa09.jpg,YES,YOLO + Virtual Loop,3,YES,84.0,77.2%
+frame_000082_jpg.rf.2d636e498b115f31fee83e14329994c9.jpg,YES,YOLO + Virtual Loop,2,YES,73.0,53.8%
+frame_000082_jpg.rf.8a14881a7d9e65c56c27c1cebad3dd01.jpg,YES,Virtual Loop Only,1,YES,79.0,69.9%
+frame_000082_jpg.rf.ee7041ae06ec76225e528a59871393a4.jpg,YES,YOLO + Virtual Loop,2,YES,75.0,62.0%
+frame_000083_jpg.rf.205a6682ef764c9a9814e44512b43454.jpg,YES,YOLO + Virtual Loop,2,YES,77.0,58.8%
+frame_000083_jpg.rf.869c508e25a0b6b8c3c9477722e6478b.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000083_jpg.rf.8abe6406526a2ae48db5ca46ab7ab91b.jpg,YES,Virtual Loop Only,1,YES,79.0,69.7%
+frame_000083_jpg.rf.cec79b5c8785e6d399196aee93102bed.jpg,YES,YOLO + Virtual Loop,4,YES,78.0,66.5%
+frame_000084_jpg.rf.27577db0c5c375ac9edde6d748ecd3b7.jpg,YES,YOLO + Virtual Loop,4,YES,79.0,68.7%
+frame_000084_jpg.rf.bc4f7d7cde041ea6bcc21f7f0a90733f.jpg,YES,YOLO + Virtual Loop,3,YES,79.0,59.8%
+frame_000085_jpg.rf.39a09275f965890fc8bf24e7ef8970b1.jpg,YES,YOLO + Virtual Loop,3,YES,79.0,68.9%
+frame_000085_jpg.rf.6bac14f9aecff9cca7333c1d0faec8e0.jpg,YES,YOLO + Virtual Loop,2,YES,79.0,60.3%
+frame_000085_jpg.rf.f5d4120118d6d9b74e4ce283ff444fbb.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000086_jpg.rf.4aee523f2881087793f9ed5558503e6b.jpg,YES,YOLO Only,1,NO,65.0,35.9%
+frame_000086_jpg.rf.4ca6af636b061e49b30f24cff7b4bce2.jpg,YES,YOLO + Virtual Loop,3,YES,79.0,69.0%
+frame_000086_jpg.rf.6bfef3797582df0324bdafa7a27e7f15.jpg,YES,YOLO + Virtual Loop,2,YES,79.0,60.6%
+frame_000086_jpg.rf.b9e6049a6b21a598a6d596e6233f4ee7.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000087_jpg.rf.1895972c1722d2283d5a651597c813b6.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000087_jpg.rf.2f17f74d2f82f4dd163bb306bd124441.jpg,YES,YOLO + Virtual Loop,4,YES,79.0,69.6%
+frame_000087_jpg.rf.962ef8a02145ae3438e4e615a84dad25.jpg,YES,YOLO Only,1,NO,70.0,47.5%
+frame_000087_jpg.rf.a79d4dc8d85a778e90dc9a7a0442b796.jpg,YES,YOLO + Virtual Loop,2,YES,81.0,64.2%
+frame_000088_jpg.rf.87ca81e39d0c43ff7ef5ed24a8399802.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000088_jpg.rf.95cee5580ee7bd59e39be8ac3742f38d.jpg,YES,YOLO + Virtual Loop,2,YES,81.0,63.3%
+frame_000088_jpg.rf.b20b3efad6fb061d74b253fff37864e3.jpg,YES,YOLO + Virtual Loop,3,YES,79.0,69.4%
+frame_000089_jpg.rf.4105f6346f1381f1ca3a86666f80ba1e.jpg,YES,YOLO + Virtual Loop,2,YES,81.0,64.8%
+frame_000089_jpg.rf.6b3204bdedac6a85f2b0a6728dcf66d6.jpg,YES,YOLO + Virtual Loop,4,YES,79.0,69.5%
+frame_000089_jpg.rf.716f143bbadc511eab61264df0b8c341.jpg,YES,YOLO + Virtual Loop,1,YES,76.0,64.3%
+frame_000091_jpg.rf.161730939c36697dbaa25d8acedd5a5c.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000093_jpg.rf.410f14a988bd9b5c18543a7042c20d00.jpg,YES,YOLO + Virtual Loop,1,YES,79.0,71.8%
+frame_000093_jpg.rf.fec17a5d4a3be5be79ecd95da29c691f.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000096_jpg.rf.7d16446990f0189d2165651f39befaab.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000097_jpg.rf.0b5db5cb407e1311bc3dc0f4457cfd98.jpg,YES,Virtual Loop Only,1,YES,79.0,71.6%
+frame_000097_jpg.rf.70babbec4b5b6817d99257922860793f.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000098_jpg.rf.d004ed2becd56da28cd9d234b339f5af.jpg,YES,Virtual Loop Only,1,YES,79.0,71.5%
+frame_000098_jpg.rf.e396d8840d7fe5e699e76b6c960717ca.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000100_jpg.rf.286759ff518d585560599e43117e0604.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000100_jpg.rf.d1be874650df5f1fb8b249a1b1bafc26.jpg,YES,Virtual Loop Only,1,YES,79.0,71.2%
+frame_000101_jpg.rf.5f8cf0a6e12dc26e8db52765f141642d.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000103_jpg.rf.4402d03251dea1013537693ab8e8fec7.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000104_jpg.rf.13e4e77701ef0e0bef6abb9e3c8df68e.jpg,YES,Virtual Loop Only,1,YES,79.0,70.8%
+frame_000105_jpg.rf.60e568f4188e0e62321106611ca0e13a.jpg,YES,Virtual Loop Only,1,YES,79.0,70.9%
+frame_000105_jpg.rf.ca2b2fe936932dc51767b402f192d654.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000106_jpg.rf.2fedf979bdb3f7ae2b7be39915283b9e.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000109_jpg.rf.26e76afe22765082632f833aa9ff0842.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000109_jpg.rf.8c3be93d5dd705493739f81ab462a697.jpg,YES,Virtual Loop Only,1,YES,79.0,70.3%
+frame_000112_jpg.rf.0395956b3b5cffdbc31df409532befa7.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000113_jpg.rf.d0a37d95909484b4fc912a037b58cdda.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000115_jpg.rf.ec5dff6c3633fe623fa3989c07c225ce.jpg,YES,Virtual Loop Only,1,YES,79.0,70.0%
+frame_000116_jpg.rf.c916c33b8b04b3f06e971d2694bfd397.jpg,YES,Virtual Loop Only,1,YES,79.0,69.9%
+frame_000117_jpg.rf.1e77f1f92d111f00baff159ad2d7a331.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000117_jpg.rf.bc59a214b30bc825839b8f289ce97c14.jpg,YES,Virtual Loop Only,1,YES,79.0,70.0%
+frame_000118_jpg.rf.3f50fbfd89fd75c74b2068929f9fdf44.jpg,YES,Virtual Loop Only,1,YES,79.0,70.0%
+frame_000120_jpg.rf.e42b1a9cf42f35d676c358b637b93c8b.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000122_jpg.rf.37fba602522ce4795c96d09edef41e4f.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000123_jpg.rf.b662b0cfddfbcdf58e426b389e6de831.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000125_jpg.rf.8d53af9cf755e28876f277f8a1b3b959.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000127_jpg.rf.d1673aeb007309e7befb437360b3cb62.jpg,YES,Virtual Loop Only,1,YES,79.0,69.5%
+frame_000130_jpg.rf.5c09d34f9104bbf8bb8cf1cd8b22d555.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000130_jpg.rf.8baa1381c56bdc9dd7fa2e31dad43b91.jpg,YES,Virtual Loop Only,1,YES,79.0,69.5%
+frame_000132_jpg.rf.5f932a347ecebf739f12074bb2105685.jpg,YES,Virtual Loop Only,1,YES,151.0,99.9%
+frame_000133_jpg.rf.6ca5dd4f4c6235e5348ad4a00f246720.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000134_jpg.rf.2f4d8395f16041687cd832d0ae9f9ea7.jpg,YES,Virtual Loop Only,1,YES,79.0,69.4%
+frame_000135_jpg.rf.01bd84f8330962c5190afb0fdc8817e6.jpg,YES,Virtual Loop Only,1,YES,79.0,69.5%
+frame_000135_jpg.rf.0e928f2b731c7535688a432a99634272.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000136_jpg.rf.7cf6e74fa097042006366f304e16f510.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000137_jpg.rf.3b33e23a6dbe4fd067c75be0debea2d8.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000138_jpg.rf.545d637946c9310b83ca469386402ed9.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000140_jpg.rf.395709d5f708ae480c56a427d197a33f.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000141_jpg.rf.ac1b63d966637e61c20da5cee4ea77eb.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000144_jpg.rf.c5be8fe186651a31f0a07c63a28d959f.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000145_jpg.rf.22ca195c5c2223dfae67eb35c970acf4.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000147_jpg.rf.12c12bfd81eed3ca28281a9f0cf85793.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000148_jpg.rf.f88bb1d7562fbeccd8881a3eebed54d3.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000149_jpg.rf.a62ccbba4cd9d482036f82f8286d36cc.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000150_jpg.rf.3010b19509e50cd2848d96ec3c4e4234.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000151_jpg.rf.d80a5e996596c68915540666d3a1a446.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000155_jpg.rf.4c827521af07656c5b19bc16a2196f2c.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000156_jpg.rf.4a7b9884cda893bd1ff387dc014cfd59.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000157_jpg.rf.51cf28f33f644503fc7f6d60ca733669.jpg,YES,YOLO + Virtual Loop,1,YES,78.0,69.0%
+frame_000158_jpg.rf.aa9382cfecdfa0231be3b7043b42e2f2.jpg,YES,Virtual Loop Only,1,YES,79.0,68.9%
+frame_000159_jpg.rf.4020cdeff0cf4171245433d370eefb7c.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000160_jpg.rf.c02a989c671d7633c8e9d184e9c2215a.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000163_jpg.rf.c376c52fa853c4f68ec6c69eb94c9411.jpg,YES,Virtual Loop Only,1,YES,78.0,68.6%
+frame_000165_jpg.rf.a80ab5b986d2ec76701a72155d431941.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000169_jpg.rf.f9df0879691a359cf99d66b74a31920c.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000171_jpg.rf.1dbe12109b423ae98ad4e301bd94948b.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000173_jpg.rf.8522b1ad97696b56b7cba439fc8ce7cf.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000176_jpg.rf.4e1f3d5c25400339e00e6c428bda2525.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000177_jpg.rf.8b78916e8b4e20aab9c70e599f728314.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000180_jpg.rf.d973321c47cf9d05c0cb119d1cb57317.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000181_jpg.rf.b5ba2bc02e0c9f5e8350067113769d2f.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000183_jpg.rf.16856b5fcaddcec51477a992e0b34669.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000190_jpg.rf.13aa61b3cc60dc493871fb1a5f9f737d.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%
+frame_000193_jpg.rf.93960d661bb63d81d4be59d8e7c2e02d.jpg,YES,Virtual Loop Only,1,YES,150.0,99.9%

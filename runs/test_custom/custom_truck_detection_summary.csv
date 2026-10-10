@@ -1,0 +1,2 @@
+﻿filename,has_truck,truck_count,max_confidence,detections_detail
+frame_000002_jpg.rf.ea27c14f8c5be779a4c227ff3fa2d6af.jpg,YES,1,0.4183,"[{'box': [0.0, 46.5, 50.1, 227.4], 'conf': 0.4183}]"
