@@ -1,108 +1,80 @@
-# 道路卡車/砂石車存在性判定專案 (Truck Presence Detection)
+# 卡車車斗帆布覆蓋合規性判定專案 (Dump Truck Tarp Coverage Detection)
 
-本專案專注於解決固定角度路口／道路監視器（Bird's-eye View 俯視鏡頭）下，「**畫面中是否存在砂石車/卡車**」的高精準度判定與自動化標註。
-
----
-
-## 💡 核心技術方案：方案二「工業級混合雙重檢測管線 (Hybrid Detection Pipeline)」
-
-### 1. 俯視監控場景的痛點挑戰
-- **一般 COCO YOLO 的視角盲區**：標準 YOLO 模型（如 `yolov8n.pt`）多以人眼視角、完整車身訓練。
-- **手前近景裁切漏檢**：當大型砂石車駛入鏡頭近景時，車頭及車輪通常已被畫面邊緣裁切，視野中僅剩下**大面積車頂與覆蓋帆布的車斗**，導致 YOLO 信心度驟降而漏檢。
-
-### 2. 雙重混合檢測機制
-本系統結合兩種技術，形成互補聯防：
-$$\text{判定結果} = (\text{YOLO 目標偵測}) \quad \mathbf{OR} \quad (\text{車道虛擬檢測線圈 Virtual Loop ROI})$$
-
-| 檢測手段 | 負責範圍 | 判定特徵 |
-| :--- | :--- | :--- |
-| **YOLOv8 目標偵測** | 遠景、中景之完整進出車輛 | 辨識車頭、車體輪廓 (Class 7: Truck, Class 5: Heavy/Bus) |
-| **車道虛擬線圈 (Virtual Loop)** | 手前近景大車（車頭被裁切、僅見車頂/車斗） | 監控核心車道，以柏油路黑度與大面積車體亮色/紋理佔用特徵判定 |
+本專案專注於利用 **YOLOv8 深度學習神經網絡**，針對道路與路口監視器影像，即時精準判定**砂石車/卡車車斗上方「帆布是否有蓋好」**。
 
 ---
 
-## 📁 專案工作目錄結構
+## 🎯 核心辨識類別 (Class Definitions)
+
+模型直接針對車斗區域框選並分類為兩大合規狀態：
+
+| 類別 ID | 類別名稱 | 意義說明 | 畫面標註邊框 | 狀態判決 |
+| :---: | :--- | :--- | :---: | :---: |
+| **`0`** | **`covered`** | 帆布完整覆蓋車斗（含正常裝載與超載有蓋） | 🟢 綠色框 | **[COMPLIANT] 合格** |
+| **`1`** | **`uncovered`** | 車斗裸露、未蓋帆布、砂石土石外露（違規） | 🔴 紅色框 | **[VIOLATION] 違規** |
+
+---
+
+## 📊 模型訓練成果與指標 (NVIDIA RTX 4060 GPU 加速)
+
+* **訓練資料量**：2,674 張高畫質標註影像（Train: 1,868 張 / Val: 534 張 / Test: 268 張）
+* **微調 Epoch**：25 個 Epoch（總耗時約 5.7 分鐘）
+* **單張推論延遲**：約 **1.5 毫秒**（極高幀率 ~660 FPS）
+
+| 評估類別 | 實例數 (Instances) | 精確率 (Precision) | 召回率 (Recall) | **mAP@50 (核心指標)** | mAP@50-95 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **總體平均 (All)** | **676** | **85.0%** | **86.4%** | **🔥 92.2%** | **68.9%** |
+| 🟢 **`covered` (帆布蓋好)** | 322 | 85.8% | 89.8% | **🌟 93.9%** | 73.2% |
+| 🔴 **`uncovered` (未蓋好)** | 354 | 84.1% | 83.1% | **🌟 90.5%** | 64.6% |
+
+---
+
+## 📁 專案目錄結構 (已整理優化)
 
 ```text
-dump_truck_tarp_project/
-├── data/
-│   └── raw_images/                   # 原始道路監控大圖 (421 張)
+dump-truck-tarp/
+├── dataset_tarp/                     # 帆布覆蓋專屬 YOLO 資料集 (2,674 張)
+│   ├── train/                        # 訓練集 (1,868 張)
+│   ├── valid/                        # 驗證集 (534 張)
+│   ├── test/                         # 測試集 (268 張)
+│   └── data.yaml                     # 資料集類別設定檔
 ├── src/
-│   └── 04_detect_truck.py            # 方案二：YOLO + 車道虛擬線圈混合判定核心腳本
+│   ├── 08_import_and_convert_dataset.py # 資料集匯入與 4 轉 2 類別轉換腳本
+│   ├── 09_train_tarp_yolo.py        # GPU 一鍵式 YOLOv8 模型訓練腳本
+│   └── 10_detect_tarp.py            # 帆布合規性端到端推論腳本 (支援圖檔/目錄/CSV)
 ├── runs/
-│   ├── reference_background.jpg      # 道路空車道參考背景基準
-│   └── truck_detection/             # 檢測結果可視化圖片與 CSV 報表
-│       ├── det_*.jpg                 # 標註雙重檢測方框與狀態橫幅的輸出圖片
-│       └── truck_detection_summary.csv # 每張圖片結構化分析報表
-├── yolov8n.pt                        # YOLO 目標偵測模型權重
+│   ├── tarp_training/weights/best.pt # 訓練好的最佳模型權重 (mAP50=92.2%)
+│   ├── tarp_test_eval/              # 268 張測試集推論成果與 CSV 報表
+│   └── detect/runs/tarp_training/   # 訓練圖表 (Loss、PR曲線、混淆矩陣)
+├── legacy_truck_presence/            # 📦 歷史封存：先前舊的「卡車存在性 (Presence)」資料與程式
+│   ├── data/                         # 舊 421 張路況原始影像
+│   ├── dataset/                      # 舊卡車存在標註資料集
+│   ├── runs/                         # 舊檢測圖、線圈分析與微調權重
+│   └── src/                          # 舊腳本 (04, 05, 06, 07)
+├── yolov8n.pt                        # 基礎預訓練權重
 ├── pyproject.toml
-├── uv.lock
 └── README.md
 ```
 
 ---
 
-## 🚀 執行方式 (使用 `uv run`)
+## 🚀 執行方式
 
-### 1. 執行整批影像判定 (預設資料夾 `data/raw_images`)
+### 1. 執行帆布合規性推論判定 (`src/10_detect_tarp.py`)
 ```bash
-uv run python src/04_detect_truck.py
-```
-- 自動啟用 YOLO（信心度門檻 `--conf 0.25`，類別 7 與 5）+ 車道虛擬線圈混合檢測。
-- 檢測結果輸出至 `runs/truck_detection/`。
+# 批次判定指定資料夾內的圖片 (使用 GPU 加速)
+.venv\Scripts\python.exe src/10_detect_tarp.py --input <圖片資料夾路徑> --output_dir runs/my_results --device 0
 
-### 2. 判定單張指定圖片
+# 測試預設測試集
+.venv\Scripts\python.exe src/10_detect_tarp.py --input dataset_tarp/test/images --output_dir runs/tarp_test_eval --device 0
+
+# 判定單張圖片
+.venv\Scripts\python.exe src/10_detect_tarp.py --input <圖片檔名.jpg> --output_dir runs/my_results --device 0
+```
+
+### 2. 重新啟動 GPU 訓練 (`src/09_train_tarp_yolo.py`)
 ```bash
-uv run python src/04_detect_truck.py --input data/raw_images/frame_000000_jpg.rf.ce877d008eb129a8ca4526999a4c3e4d.jpg
+.venv\Scripts\python.exe src/09_train_tarp_yolo.py
 ```
-
-### 3. 常見自訂參數選項
-```bash
-uv run python src/04_detect_truck.py --input <圖片或目錄> --output_dir <輸出目錄> [參數]
-```
-- `--conf`: YOLO 信心度門檻值（預設: `0.25`）。
-- `--classes`: 欲偵測的類別 ID（預設: `7 5`，即卡車與大型客貨車）。
-- `--disable_virtual_loop`: 關閉車道虛擬線圈（僅使用純 YOLO 檢測）。
-- `--loop_median_thresh`: 車道佔用中位數亮度門檻（預設: `65.0`，空路面基準約 `46`）。
-- `--loop_bright_thresh`: 車道明亮像素比例門檻（預設: `0.50`）。
-- `--no_csv`: 關閉 CSV 檔案輸出。
-
----
-
-## 📊 輸出說明
-
-### 1. 視覺化圖片標註
-- 🟢 **翡翠綠邊框**：YOLO 檢測出的車輛位置與信心度（例如 `Truck 89.6%`）。
-- 🟠 **橙黃色邊框**：車道虛擬線圈檢測出的手前近景車斗/車身（標註 `[TRUCK] Close-up Bed/Cab`）。
-- 🏷️ **左上角狀態橫幅**：
-  - `[TRUCK DETECTED] X truck(s) [Dual Confirmed]`：YOLO 與虛擬線圈雙重確認。
-  - `[TRUCK DETECTED] Foreground Truck Present`：虛擬線圈成功補足手前大車漏檢。
-  - `[TRUCK DETECTED] X truck(s) [YOLO]`：遠/中景 YOLO 檢出。
-  - `[NO TRUCK DETECTED] Road Idle`：道路空閒無車。
-
-### 2. 結構化 CSV 清單 (`truck_detection_summary.csv`)
-| 欄位名稱 | 說明 | 範例值 |
-| :--- | :--- | :--- |
-| `filename` | 原始影像檔名 | `frame_000000_jpg.rf.ce877d...` |
-| `has_truck` | 最終判定是否有卡車 | `YES` / `NO` |
-| `detection_source` | 檢測觸發來源 | `YOLO + Virtual Loop` / `Virtual Loop Only` / `YOLO Only` / `None` |
-| `truck_count` | 檢出車輛估計數 | `1`, `2` |
-| `virtual_loop_occupied` | 虛擬線圈是否觸發佔用 | `YES` / `NO` |
-| `virtual_loop_median` | 車道核心 ROI 中位數亮度 | `88.5` |
-| `virtual_loop_bright_ratio` | 車道核心明亮像素佔比 | `78.2%` |
-
----
-
-## 📈 421 張道路實測效能報告
-
-針對 `data/raw_images/` 內共 421 張俯視監控影像全數跑測結果：
-
-| 指標類別 | 圖片張數 | 佔比 | 說明 |
-| :--- | :--- | :--- | :--- |
-| **總分析影像數** | 421 張 | 100.0% | 涵蓋空道路、遠景卡車、手前近景大車 |
-| **🚛 檢出卡車/砂石車** | **383 張** | **91.0%** | 全面捕獲有車狀態 |
-| 　├ 雙重同時確認 (YOLO + 線圈) | 155 張 | 36.8% | 具備明顯車體特徵且佔用車道 |
-| 　├ **🌟 虛擬線圈救援成功 (手前近景大車)** | **223 張** | **53.0%** | **徹底解決 YOLO 因俯視/車身裁切導致的漏檢！** |
-| 　└ YOLO 獨立檢出 (遠/中景進出車輛) | 5 張 | 1.2% | 尚未完全駛入虛擬檢測線圈之車輛 |
-| **🛣️ 道路空車 / 無車 (Idle)** | **38 張** | **9.0%** | 無任何誤觸發，路面背景判定穩健 |
-
+* 自動調用 NVIDIA RTX 4060 GPU。
+* 輸出最佳權重至 `runs/tarp_training/weights/best.pt`。

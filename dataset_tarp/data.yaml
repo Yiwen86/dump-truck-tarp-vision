@@ -1,0 +1,7 @@
+path: c:/Users/USER/Desktop/dump-truck-tarp/dataset_tarp
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 2
+names: ['covered', 'uncovered']
