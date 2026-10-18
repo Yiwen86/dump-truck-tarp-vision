@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-腳本: src/08_import_and_convert_dataset.py
+腳本: src/01_import_and_convert_dataset.py
 =============================================================================
 功能:
 1. 從 Downloads 中的 "merged dataset.v3i.yolov8" 複製並建立 "dataset_tarp"。

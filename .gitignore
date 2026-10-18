@@ -37,6 +37,9 @@ Thumbs.db
 
 # Ultralytics & Training artifacts (保留腳本與結構，忽略大量中間暫存檔)
 runs/**/*.cache
-runs/detect/runs/truck_custom_yolo/train/
-runs/detect/runs/truck_custom_yolo/val/
 dataset/**/*.cache
+
+# Temporary & Curation Workspaces (大體積人工挑圖與測試池)
+curation_pool_767/
+dataset_curated/
+runs/eval_desktop_overhead/

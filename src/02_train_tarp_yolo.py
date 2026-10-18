@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-腳本: src/09_train_tarp_yolo.py
+腳本: src/02_train_tarp_yolo.py
 =============================================================================
 功能:
 一鍵啟動 YOLOv8 GPU 訓練 —— 專屬卡車車斗帆布覆蓋判定模型 (Tarp Detection)
-1. 載入 yolov8n.pt 預訓練權重。
+1. 載入 weights/yolov8n.pt 預訓練權重。
 2. 資料集: dataset_tarp/data.yaml (2 類別: covered / uncovered)。
 3. 使用 GPU (NVIDIA RTX 4060) 進行端到端加速微調。
-4. 輸出最佳權重至 runs/tarp_training/yolov8n_tarp/weights/best.pt。
+4. 輸出最佳權重至 runs/tarp_training/weights/best.pt 並同步備份至 weights/。
 =============================================================================
 """
 
 import sys
+import shutil
 from pathlib import Path
 import torch
 from ultralytics import YOLO
@@ -38,9 +39,17 @@ def main():
         print(f"[Error] data.yaml not found: {yaml_path}")
         sys.exit(1)
 
-    weights_path = Path("yolov8n.pt").resolve()
-    if not weights_path.exists():
-        print(f"[Warning] yolov8n.pt not found, downloading default...")
+    weights_candidates = [
+        Path("weights/yolov8n.pt").resolve(),
+        Path("yolov8n.pt").resolve(),
+    ]
+    weights_path = None
+    for cand in weights_candidates:
+        if cand.exists():
+            weights_path = cand
+            break
+    if weights_path is None:
+        print(f"[Warning] Local yolov8n.pt not found, downloading default...")
         weights_path = "yolov8n.pt"
 
     print(f" Dataset config: {yaml_path}")
@@ -51,6 +60,7 @@ def main():
 
     model = YOLO(str(weights_path))
 
+    runs_dir = Path("runs").resolve()
     results = model.train(
         data=str(yaml_path),
         epochs=25,
@@ -58,16 +68,23 @@ def main():
         batch=16,
         workers=2,
         device=device,
-        project="runs/tarp_training",
-        name="yolov8n_tarp",
+        project=str(runs_dir),
+        name="tarp_training",
         exist_ok=True,
         plots=True,
         verbose=True,
     )
 
+    best_out = Path("runs/tarp_training/weights/best.pt").resolve()
+    if best_out.exists():
+        weights_dest = Path("weights/best_tarp_v1.pt").resolve()
+        weights_dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(best_out, weights_dest)
+        print(f" [BACKUP] Copied best weights to: {weights_dest}")
+
     print("=" * 68)
     print(" [DONE] Model training completed successfully!")
-    print(f" Best weights: runs/tarp_training/yolov8n_tarp/weights/best.pt")
+    print(f" Best weights: runs/tarp_training/weights/best.pt (and weights/best_tarp_v1.pt)")
     print("=" * 68)
 
 if __name__ == "__main__":

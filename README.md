@@ -29,7 +29,7 @@
 
 ---
 
-## 📁 專案目錄結構 (已整理優化)
+## 📁 專案目錄結構 (已全面整合優化)
 
 ```text
 dump-truck-tarp/
@@ -38,21 +38,30 @@ dump-truck-tarp/
 │   ├── valid/                        # 驗證集 (534 張)
 │   ├── test/                         # 測試集 (268 張)
 │   └── data.yaml                     # 資料集類別設定檔
-├── src/
-│   ├── 08_import_and_convert_dataset.py # 資料集匯入與 4 轉 2 類別轉換腳本
-│   ├── 09_train_tarp_yolo.py        # GPU 一鍵式 YOLOv8 模型訓練腳本
-│   └── 10_detect_tarp.py            # 帆布合規性端到端推論腳本 (支援圖檔/目錄/CSV)
+├── weights/                          # 核心模型權重庫
+│   ├── best_tarp_v1.pt               # 🔥 現行最佳帆布辨識模型 (mAP50=92.2%)
+│   ├── yolov8n.pt                    # YOLOv8 官方基底預訓練權重
+│   └── yolo26n.pt                    # 輔助/備用權重
+├── src/                              # 模組化工作流腳本 (01~05 與 Web 系統)
+│   ├── 01_import_and_convert_dataset.py # 資料集匯入與 4 轉 2 類別轉換腳本
+│   ├── 02_train_tarp_yolo.py        # GPU 一鍵式 YOLOv8 模型訓練腳本
+│   ├── 03_detect_tarp.py            # 帆布合規性端到端推論腳本 (支援圖檔/目錄/CSV)
+│   ├── 04_extract_unique_767.py     # 767 張不重複原始基底影像去重提煉腳本
+│   ├── 05_build_dataset_from_selected.py # 將挑選好的精華圖片轉為新資料集
+│   └── app_demo.py                  # 即時視覺化 Web 互動展示系統 (Flask)
 ├── runs/
-│   ├── tarp_training/weights/best.pt # 訓練好的最佳模型權重 (mAP50=92.2%)
-│   ├── tarp_test_eval/              # 268 張測試集推論成果與 CSV 報表
-│   └── detect/runs/tarp_training/   # 訓練圖表 (Loss、PR曲線、混淆矩陣)
+│   ├── tarp_training/               # 完整訓練日誌、曲線圖與權重 (Loss、PR曲線、混淆矩陣)
+│   └── tarp_test_eval/              # 268 張測試集推論成果圖與 CSV 統計報表
+├── curation_pool_767/                # 人工高品質圖片篩選池 (767 張)
+│   ├── images/ & labels/            # 原圖與對應 2 類別標註
+│   ├── previews/                    # 附帶綠框/紅框的視覺化快速預覽圖
+│   ├── selected/                    # 存放人工挑選出的精華影像
+│   └── README_PICKING_GUIDE.txt     # 圖片挑選指引
 ├── legacy_truck_presence/            # 📦 歷史封存：先前舊的「卡車存在性 (Presence)」資料與程式
-│   ├── data/                         # 舊 421 張路況原始影像
-│   ├── dataset/                      # 舊卡車存在標註資料集
-│   ├── runs/                         # 舊檢測圖、線圈分析與微調權重
-│   └── src/                          # 舊腳本 (04, 05, 06, 07)
-├── yolov8n.pt                        # 基礎預訓練權重
-├── pyproject.toml
+│   ├── data/ & dataset/             # 舊路況原始影像與標註
+│   ├── runs/                        # 舊檢測圖、線圈分析與微調權重
+│   └── src/                         # 舊腳本 (04, 05, 06, 07)
+├── pyproject.toml / uv.lock
 └── README.md
 ```
 
@@ -60,21 +69,27 @@ dump-truck-tarp/
 
 ## 🚀 執行方式
 
-### 1. 執行帆布合規性推論判定 (`src/10_detect_tarp.py`)
+### 1. 執行帆布合規性推論判定 (`src/03_detect_tarp.py`)
 ```bash
-# 批次判定指定資料夾內的圖片 (使用 GPU 加速)
-.venv\Scripts\python.exe src/10_detect_tarp.py --input <圖片資料夾路徑> --output_dir runs/my_results --device 0
+# 批次判定指定資料夾內的圖片 (使用 GPU 加速，預設載入 weights/best_tarp_v1.pt)
+.venv\Scripts\python.exe src/03_detect_tarp.py --input <圖片資料夾路徑> --output_dir runs/my_results --device 0
 
 # 測試預設測試集
-.venv\Scripts\python.exe src/10_detect_tarp.py --input dataset_tarp/test/images --output_dir runs/tarp_test_eval --device 0
+.venv\Scripts\python.exe src/03_detect_tarp.py --input dataset_tarp/test/images --output_dir runs/tarp_test_eval --device 0
 
 # 判定單張圖片
-.venv\Scripts\python.exe src/10_detect_tarp.py --input <圖片檔名.jpg> --output_dir runs/my_results --device 0
+.venv\Scripts\python.exe src/03_detect_tarp.py --input <圖片檔名.jpg> --output_dir runs/my_results --device 0
 ```
 
-### 2. 重新啟動 GPU 訓練 (`src/09_train_tarp_yolo.py`)
+### 2. 啟動 Web 視覺化互動 DEMO (`src/app_demo.py`)
 ```bash
-.venv\Scripts\python.exe src/09_train_tarp_yolo.py
+.venv\Scripts\python.exe src/app_demo.py
+```
+* 開啟瀏覽器訪問 `http://127.0.0.1:5000` 即可拖曳圖片或使用範例進行即時合規判定與信心度滑桿測試。
+
+### 3. 重新啟動 GPU 訓練 (`src/02_train_tarp_yolo.py`)
+```bash
+.venv\Scripts\python.exe src/02_train_tarp_yolo.py
 ```
 * 自動調用 NVIDIA RTX 4060 GPU。
-* 輸出最佳權重至 `runs/tarp_training/weights/best.pt`。
+* 輸出最佳權重至 `runs/tarp_training/weights/best.pt` 並自動同步至 `weights/best_tarp_v1.pt`。

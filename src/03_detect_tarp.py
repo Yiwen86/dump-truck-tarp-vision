@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-腳本: src/10_detect_tarp.py
+腳本: src/03_detect_tarp.py
 =============================================================================
 功能:
 卡車車斗帆布覆蓋合規性推論判定腳本 (Tarp Compliance Inference)
-1. 載入微調訓練後的專屬權重 (runs/tarp_training/yolov8n_tarp/weights/best.pt)。
+1. 載入微調訓練後的專屬權重 (預設: weights/best_tarp_v1.pt 或 runs/tarp_training/weights/best.pt)。
 2. 輸入圖片或資料夾，進行端到端車斗帆布檢測。
 3. 視覺化疊加標註：
    - 🟢 綠色框: covered (合規有蓋好)
@@ -22,6 +22,16 @@ import cv2
 from tqdm import tqdm
 from ultralytics import YOLO
 
+def get_default_weights():
+    candidates = [
+        Path("weights/best_tarp_v1.pt"),
+        Path("runs/tarp_training/weights/best.pt"),
+    ]
+    for c in candidates:
+        if c.exists():
+            return str(c)
+    return "weights/best_tarp_v1.pt"
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="卡車車斗帆布覆蓋合規性推論系統"
@@ -35,8 +45,8 @@ def parse_args():
     parser.add_argument(
         "--weights",
         type=str,
-        default="runs/tarp_training/yolov8n_tarp/weights/best.pt",
-        help="專屬權重檔路徑 (預設: runs/tarp_training/yolov8n_tarp/weights/best.pt)",
+        default=get_default_weights(),
+        help="專屬權重檔路徑 (預設: weights/best_tarp_v1.pt)",
     )
     parser.add_argument(
         "--output_dir",
