@@ -93,3 +93,9 @@ dump-truck-tarp/
 ```
 * 自動調用 NVIDIA RTX 4060 GPU。
 * 輸出最佳權重至 `runs/tarp_training/weights/best.pt` 並自動同步至 `weights/best_tarp_v1.pt`。
+
+---
+
+## 📝 專案變更與重構歷程
+完整目錄整理、腳本新舊序號對照及權重整合細節，請參閱：
+* [專案重構記錄 (REFACTORING_LOG.md)](REFACTORING_LOG.md)
