@@ -24,7 +24,9 @@ from ultralytics import YOLO
 
 def get_default_weights():
     candidates = [
+        Path("weights/best_tarp_v2.pt"),
         Path("weights/best_tarp_v1.pt"),
+        Path("runs/tarp_v2_training/weights/best.pt"),
         Path("runs/tarp_training/weights/best.pt"),
     ]
     for c in candidates:

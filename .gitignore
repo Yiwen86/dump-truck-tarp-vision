@@ -42,4 +42,9 @@ dataset/**/*.cache
 # Temporary & Curation Workspaces (大體積人工挑圖與測試池)
 curation_pool_767/
 dataset_curated/
+dataset_v2/
 runs/eval_desktop_overhead/
+runs/v2_eval_real_overhead/
+runs/tarp_v2_test_eval/
+runs/tarp_v2_training/
+

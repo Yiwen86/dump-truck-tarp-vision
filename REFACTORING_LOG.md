@@ -75,3 +75,29 @@ runs/eval_desktop_overhead/
 | **啟動 Web DEMO** | `python src/app_demo.py` | `.venv\Scripts\python.exe src/app_demo.py` |
 | **去重提取 767 原圖** | `python src/11_extract_unique_767.py` | `.venv\Scripts\python.exe src/04_extract_unique_767.py` |
 | **構建精煉資料集** | `python src/12_build_dataset_from_selected.py` | `.venv\Scripts\python.exe src/05_build_dataset_from_selected.py` |
+| **匯入並構建 V2 資料集** | *(新增加功能)* | `.venv\Scripts\python.exe src/06_import_and_build_v2_dataset.py` |
+| **訓練 V2 模型 (領域融合)** | *(新增加功能)* | `.venv\Scripts\python.exe src/07_train_tarp_v2.py` |
+
+---
+
+## 🌟 2026-10-25: V2 模型領域微調升級 (Domain Fine-Tuning)
+
+### 1. 目標背景
+使用者提供了 57 張真實台灣路況俯視角之精準標註資料（Covered 7 張、Uncovered 50 張）。為改善俯視監視器視角下對未蓋砂石車的辨識率，採用**方案 A（V1 基底 + 領域融合微調）**。
+
+### 2. 核心變更
+- **資料分層抽樣與融合**：
+  - 建立 [`src/06_import_and_build_v2_dataset.py`](src/06_import_and_build_v2_dataset.py)。
+  - 將 57 張圖片以分層抽樣（Stratified Split）精準劃分為 Train (46 張: 6 covered / 40 uncovered) 與 Val (11 張: 1 covered / 10 uncovered)。
+  - 與原 2,674 張基礎資料融合，建立包含 2,731 張影像的 `dataset_v2/`。
+- **RTX 4060 GPU 加速微調**：
+  - 建立 [`src/07_train_tarp_v2.py`](src/07_train_tarp_v2.py)，以 `weights/best_tarp_v1.pt` 為基底進行自適應學習率微調。
+  - 產出最佳權重 [`weights/best_tarp_v2.pt`](weights/best_tarp_v2.pt)。
+- **推論與 Web 展示系統升級**：
+  - 更新 [`src/03_detect_tarp.py`](src/03_detect_tarp.py) 與 [`src/app_demo.py`](src/app_demo.py)，優先自動調用 `best_tarp_v2.pt`。
+- **成效對比**：
+  - mAP@50 由 **92.2% 提升至 95.3% (+3.1%)**
+  - Precision 由 85.0% 提升至 **87.9% (+2.9%)**
+  - Recall 由 86.4% 提升至 **91.0% (+4.6%)**
+  - 在 57 張真實俯視路況中，檢出率達 98.2%（56/57 正確檢出）。
+

@@ -17,15 +17,29 @@
 
 ## 📊 模型訓練成果與指標 (NVIDIA RTX 4060 GPU 加速)
 
-* **訓練資料量**：2,674 張高畫質標註影像（Train: 1,868 張 / Val: 534 張 / Test: 268 張）
-* **微調 Epoch**：25 個 Epoch（總耗時約 5.7 分鐘）
-* **單張推論延遲**：約 **1.5 毫秒**（極高幀率 ~660 FPS）
+### 🌟 V2 最新模型 (Domain Fine-Tuning 領域融合微調)
+融合原資料集與 57 張真實台灣路況俯視圖進行分層抽樣微調，**mAP@50 飆升至 95.3%**：
+
+* **訓練資料量**：2,731 張影像（Train: 1,917 張 / Val: 546 張 / Test: 268 張）
+* **單張推論延遲**：約 **1.5 毫秒**（~660 FPS 極高即時性）
+* **核心權重**：[`weights/best_tarp_v2.pt`](weights/best_tarp_v2.pt)
 
 | 評估類別 | 實例數 (Instances) | 精確率 (Precision) | 召回率 (Recall) | **mAP@50 (核心指標)** | mAP@50-95 |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **總體平均 (All)** | **676** | **85.0%** | **86.4%** | **🔥 92.2%** | **68.9%** |
-| 🟢 **`covered` (帆布蓋好)** | 322 | 85.8% | 89.8% | **🌟 93.9%** | 73.2% |
-| 🔴 **`uncovered` (未蓋好)** | 354 | 84.1% | 83.1% | **🌟 90.5%** | 64.6% |
+| **總體平均 (All V2)** | **687** | **87.9%** (+2.9%) | **91.0%** (+4.6%) | **🔥 95.3% (+3.1%)** | **73.4% (+4.5%)** |
+| 🟢 **`covered` (帆布蓋好)** | 323 | 88.9% | 94.1% | **🌟 97.2% (+3.3%)** | 77.1% |
+| 🔴 **`uncovered` (未蓋好)** | 364 | 86.9% | 87.9% | **🌟 93.5% (+3.0%)** | 69.7% |
+
+<details>
+<summary>點擊展開：查看 V1 基準模型表現 (mAP@50: 92.2%)</summary>
+
+| 評估類別 | 實例數 (Instances) | 精確率 (Precision) | 召回率 (Recall) | mAP@50 | mAP@50-95 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **總體平均 (All V1)** | 676 | 85.0% | 86.4% | 92.2% | 68.9% |
+| 🟢 `covered` | 322 | 85.8% | 89.8% | 93.9% | 73.2% |
+| 🔴 `uncovered` | 354 | 84.1% | 83.1% | 90.5% | 64.6% |
+
+</details>
 
 ---
 
@@ -33,34 +47,32 @@
 
 ```text
 dump-truck-tarp/
-├── dataset_tarp/                     # 帆布覆蓋專屬 YOLO 資料集 (2,674 張)
-│   ├── train/                        # 訓練集 (1,868 張)
-│   ├── valid/                        # 驗證集 (534 張)
-│   ├── test/                         # 測試集 (268 張)
-│   └── data.yaml                     # 資料集類別設定檔
+├── dataset_v2/                       # 🔥 V2 融合資料集 (2,731 張，含真實俯視路況)
+│   ├── train/ & valid/ & test/       # 嚴格分層抽樣 (Stratified Split)
+│   ├── raw_downloaded_57/            # 57 張原始下載真實圖檔持久備份
+│   └── data.yaml                     # V2 類別與路徑設定檔
+├── dataset_tarp/                     # V1 帆布覆蓋專屬 YOLO 資料集 (2,674 張)
 ├── weights/                          # 核心模型權重庫
-│   ├── best_tarp_v1.pt               # 🔥 現行最佳帆布辨識模型 (mAP50=92.2%)
+│   ├── best_tarp_v2.pt               # 🔥 最新 V2 模型 (mAP50=95.3%，優先載入)
+│   ├── best_tarp_v1.pt               # V1 基準模型 (mAP50=92.2%)
 │   ├── yolov8n.pt                    # YOLOv8 官方基底預訓練權重
 │   └── yolo26n.pt                    # 輔助/備用權重
-├── src/                              # 模組化工作流腳本 (01~05 與 Web 系統)
+├── src/                              # 模組化工作流腳本
 │   ├── 01_import_and_convert_dataset.py # 資料集匯入與 4 轉 2 類別轉換腳本
-│   ├── 02_train_tarp_yolo.py        # GPU 一鍵式 YOLOv8 模型訓練腳本
-│   ├── 03_detect_tarp.py            # 帆布合規性端到端推論腳本 (支援圖檔/目錄/CSV)
+│   ├── 02_train_tarp_yolo.py        # V1 模型訓練腳本
+│   ├── 03_detect_tarp.py            # 帆布合規性端到端推論腳本 (自動優先載入 V2 權重)
 │   ├── 04_extract_unique_767.py     # 767 張不重複原始基底影像去重提煉腳本
-│   ├── 05_build_dataset_from_selected.py # 將挑選好的精華圖片轉為新資料集
+│   ├── 05_build_dataset_from_selected.py # 精華挑選圖片資料集構建腳本
+│   ├── 06_import_and_build_v2_dataset.py # 匯入外部真實路況並進行分層資料融合
+│   ├── 07_train_tarp_v2.py          # V2 模型 GPU 微調訓練腳本 (從 V1 接續微調)
 │   └── app_demo.py                  # 即時視覺化 Web 互動展示系統 (Flask)
 ├── runs/
-│   ├── tarp_training/               # 完整訓練日誌、曲線圖與權重 (Loss、PR曲線、混淆矩陣)
-│   └── tarp_test_eval/              # 268 張測試集推論成果圖與 CSV 統計報表
+│   ├── tarp_v2_training/            # V2 訓練日誌、曲線圖、混淆矩陣與權重
+│   ├── tarp_v2_test_eval/           # V2 測試集推論成果圖與 CSV 統計報表
+│   ├── v2_eval_real_overhead/       # V2 在真實俯視圖上的推論結果
+│   └── tarp_training/               # V1 歷史訓練日誌與權重
 ├── curation_pool_767/                # 人工高品質圖片篩選池 (767 張)
-│   ├── images/ & labels/            # 原圖與對應 2 類別標註
-│   ├── previews/                    # 附帶綠框/紅框的視覺化快速預覽圖
-│   ├── selected/                    # 存放人工挑選出的精華影像
-│   └── README_PICKING_GUIDE.txt     # 圖片挑選指引
 ├── legacy_truck_presence/            # 📦 歷史封存：先前舊的「卡車存在性 (Presence)」資料與程式
-│   ├── data/ & dataset/             # 舊路況原始影像與標註
-│   ├── runs/                        # 舊檢測圖、線圈分析與微調權重
-│   └── src/                         # 舊腳本 (04, 05, 06, 07)
 ├── pyproject.toml / uv.lock
 └── README.md
 ```
@@ -71,28 +83,28 @@ dump-truck-tarp/
 
 ### 1. 執行帆布合規性推論判定 (`src/03_detect_tarp.py`)
 ```bash
-# 批次判定指定資料夾內的圖片 (使用 GPU 加速，預設載入 weights/best_tarp_v1.pt)
+# 批次判定指定資料夾內的圖片 (自動優先載入 weights/best_tarp_v2.pt)
 .venv\Scripts\python.exe src/03_detect_tarp.py --input <圖片資料夾路徑> --output_dir runs/my_results --device 0
 
 # 測試預設測試集
-.venv\Scripts\python.exe src/03_detect_tarp.py --input dataset_tarp/test/images --output_dir runs/tarp_test_eval --device 0
+.venv\Scripts\python.exe src/03_detect_tarp.py --input dataset_tarp/test/images --output_dir runs/tarp_v2_test_eval --device 0
 
-# 判定單張圖片
-.venv\Scripts\python.exe src/03_detect_tarp.py --input <圖片檔名.jpg> --output_dir runs/my_results --device 0
+# 測試真實路況 57 張俯視圖
+.venv\Scripts\python.exe src/03_detect_tarp.py --input dataset_v2/raw_downloaded_57 --output_dir runs/v2_eval_real_overhead --device 0
 ```
 
 ### 2. 啟動 Web 視覺化互動 DEMO (`src/app_demo.py`)
 ```bash
 .venv\Scripts\python.exe src/app_demo.py
 ```
-* 開啟瀏覽器訪問 `http://127.0.0.1:5000` 即可拖曳圖片或使用範例進行即時合規判定與信心度滑桿測試。
+* 開啟瀏覽器訪問 `http://127.0.0.1:5000` 即可拖曳圖片或使用範例進行即時合規判定（系統自動優先調用 V2 權重）。
 
-### 3. 重新啟動 GPU 訓練 (`src/02_train_tarp_yolo.py`)
+### 3. 一鍵重新微調 V2 模型 (`src/07_train_tarp_v2.py`)
 ```bash
-.venv\Scripts\python.exe src/02_train_tarp_yolo.py
+.venv\Scripts\python.exe src/07_train_tarp_v2.py
 ```
 * 自動調用 NVIDIA RTX 4060 GPU。
-* 輸出最佳權重至 `runs/tarp_training/weights/best.pt` 並自動同步至 `weights/best_tarp_v1.pt`。
+* 自動以 `weights/best_tarp_v1.pt` 為基底進行自適應領域微調，並產出 `weights/best_tarp_v2.pt`。
 
 ---
 

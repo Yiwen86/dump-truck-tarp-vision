@@ -26,9 +26,10 @@ app = Flask(__name__)
 
 # 模型權重路徑
 WEIGHTS_CANDIDATES = [
+    Path("weights/best_tarp_v2.pt").resolve(),
     Path("weights/best_tarp_v1.pt").resolve(),
+    Path("runs/tarp_v2_training/weights/best.pt").resolve(),
     Path("runs/tarp_training/weights/best.pt").resolve(),
-    Path("runs/detect/runs/tarp_training/yolov8n_tarp/weights/best.pt").resolve(),
 ]
 WEIGHTS_PATH = next((p for p in WEIGHTS_CANDIDATES if p.exists()), WEIGHTS_CANDIDATES[0])
 
