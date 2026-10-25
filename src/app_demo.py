@@ -37,10 +37,11 @@ print(f"[DEMO] Loading model from: {WEIGHTS_PATH}")
 model = YOLO(str(WEIGHTS_PATH))
 
 # 測試用範例圖片路徑
-SAMPLE_DIR = Path("dataset_tarp/test/images").resolve()
 SAMPLE_FILES = {
-    "covered": "17-OT_jpg.rf.841938541284d9b4a89e361079660515.jpg",
-    "uncovered": "05-NT_jpg.rf.77c7e59f483774471f4c7c16f49a8ab5.jpg",
+    "covered": Path("dataset_tarp/test/images/17-OT_jpg.rf.841938541284d9b4a89e361079660515.jpg").resolve(),
+    "uncovered": Path("dataset_tarp/test/images/05-NT_jpg.rf.77c7e59f483774471f4c7c16f49a8ab5.jpg").resolve(),
+    "real_uncovered": Path("dataset_v2/raw_downloaded_57/-1-_png.rf.d5ee89bc015442bdd7019b0f1da86581.jpg").resolve(),
+    "real_covered": Path("dataset_v2/raw_downloaded_57/frame_000010_jpg.rf.a065d129db9d8f38fc647e8ad4640d90.jpg").resolve(),
 }
 
 HTML_TEMPLATE = """
@@ -435,7 +436,7 @@ HTML_TEMPLATE = """
     <header>
         <div class="header-title">
             <h1>🚛 砂石車/卡車車斗帆布覆蓋合規性即時判定系統</h1>
-            <span class="model-badge">YOLOv8 Tarp (mAP50=92.2%)</span>
+            <span class="model-badge">YOLOv8 Tarp V2 (mAP50=95.3%)</span>
             <span class="gpu-badge">RTX 4060 GPU 加速</span>
         </div>
     </header>
@@ -454,13 +455,21 @@ HTML_TEMPLATE = """
 
             <h2>⚡ 快速範例測試</h2>
             <div class="sample-buttons">
-                <button class="sample-btn" onclick="loadSample('covered')">
-                    <span>範例 A：帆布完整覆蓋卡車</span>
-                    <span class="sample-tag-covered">Covered</span>
+                <button class="sample-btn" onclick="loadSample('real_uncovered')">
+                    <span>台灣路況 A：路口俯視裸露違規</span>
+                    <span class="sample-tag-uncovered">真實違規</span>
+                </button>
+                <button class="sample-btn" onclick="loadSample('real_covered')">
+                    <span>台灣路況 B：路口俯視帆布有蓋</span>
+                    <span class="sample-tag-covered">真實合格</span>
                 </button>
                 <button class="sample-btn" onclick="loadSample('uncovered')">
-                    <span>範例 B：車斗砂石裸露違規</span>
+                    <span>基準範例 C：車斗砂石裸露違規</span>
                     <span class="sample-tag-uncovered">Uncovered</span>
+                </button>
+                <button class="sample-btn" onclick="loadSample('covered')">
+                    <span>基準範例 D：帆布完整覆蓋卡車</span>
+                    <span class="sample-tag-covered">Covered</span>
                 </button>
             </div>
 
@@ -654,11 +663,8 @@ def index():
 
 @app.route("/sample/<sample_type>")
 def get_sample(sample_type):
-    filename = SAMPLE_FILES.get(sample_type)
-    if not filename:
-        return "Not found", 404
-    file_path = SAMPLE_DIR / filename
-    if not file_path.exists():
+    file_path = SAMPLE_FILES.get(sample_type)
+    if not file_path or not file_path.exists():
         return "Sample file not found", 404
     with open(file_path, "rb") as f:
         data = f.read()
