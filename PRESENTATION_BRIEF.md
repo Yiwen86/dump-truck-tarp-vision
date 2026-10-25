@@ -234,20 +234,21 @@ flowchart TD
 ---
 
 ### 【Slide 12】模組化軟體架構與生命週期 (Software Architecture & CI/CD)
-* **核心論點**：標準化、序號化流水線腳本，程式碼結構乾淨、高可重現性。
+* **核心論點**：標準化、單一主線工作流，歷程資產完整封存，兼具極致簡潔與高可溯源性。
 
-* **腳本生命週期清單 (`src/`)**：
-  * [`01_import_and_convert_dataset.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/01_import_and_convert_dataset.py)：原始資料匯入與標籤 4 轉 2 轉換。
-  * [`02_train_tarp_yolo.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/02_train_tarp_yolo.py)：V1 基準模型訓練流水線。
-  * [`03_detect_tarp.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/03_detect_tarp.py)：端到端推論工具（支援單圖/目錄/自動產出 CSV 報表）。
-  * [`04_extract_unique_767.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/04_extract_unique_767.py)：767 張基底影像去重與綠/紅框預覽產生。
-  * [`05_build_dataset_from_selected.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/05_build_dataset_from_selected.py)：人工挑選圖片之一鍵轉新資料集工具。
-  * [`06_import_and_build_v2_dataset.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/06_import_and_build_v2_dataset.py)：分層抽樣與特徵融合建集工具。
-  * [`07_train_tarp_v2.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/07_train_tarp_v2.py)：GPU 領域微調自動產出 `best_tarp_v2.pt`。
-  * [`app_demo.py`](file:///c:/Users/USER/Desktop/dump-truck-tarp/src/app_demo.py)：Web 互動展示系統。
+* **現代化主線工作流 (`src/`)**：
+  * [`train.py`](src/train.py)：一鍵式 GPU 模型訓練與自適應微調主程式（自動輸出至 `runs/train` 與 `weights/best.pt`）。
+  * [`detect.py`](src/detect.py)：通用推論引擎（支援單圖/整目錄批次處理，自動輸出標註圖與 CSV 統計表）。
+  * [`app_demo.py`](src/app_demo.py)：現代化 Web 視覺化即時互動展示系統。
+  * [`tools/`](src/tools/)：包含 `extract_unique_767.py` 與 `build_dataset_from_selected.py` 等專用工程工具。
+* **歷史歷程資產庫 (`archive/`)**：
+  * `01_legacy_truck_presence/`：第一階段卡車存在性判定完整封存（線圈與舊模型）。
+  * `02_curation_pool_767/`：767 張基底去重篩選池與預覽圖。
+  * `03_v1_dataset_backup/`：V1 早期獨立資料集備份。
+  * `history_scripts/`：01~07 階段性演進腳本完整留存。
 * **工程健全度**：
   * Git 倉庫全面同步 ([GitHub: Yiwen86/dump-truck-tarp-vision](https://github.com/Yiwen86/dump-truck-tarp-vision))。
-  * 大型資料集與暫存快取嚴格藉由 `.gitignore` 隔離，避免儲存庫膨脹。
+  * 根目錄僅呈現單一最優資料集 `dataset/` 與主力權重 `weights/best.pt`。
 
 ---
 

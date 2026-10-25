@@ -1,5 +1,0 @@
-path: C:/Users/yiwen/Desktop/dump_truck_tarp_project/dataset
-train: images/train
-val: images/val
-names:
-  0: truck

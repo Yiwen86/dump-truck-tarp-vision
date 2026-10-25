@@ -35,16 +35,20 @@ wheels/
 .DS_Store
 Thumbs.db
 
-# Ultralytics & Training artifacts (保留腳本與結構，忽略大量中間暫存檔)
+# Ultralytics & Training caches
 runs/**/*.cache
 dataset/**/*.cache
+archive/**/*.cache
 
-# Temporary & Curation Workspaces (大體積人工挑圖與測試池)
-curation_pool_767/
+# Temporary & Curation Workspaces
+archive/02_curation_pool_767/
 dataset_curated/
-dataset_v2/
-runs/eval_desktop_overhead/
-runs/v2_eval_real_overhead/
-runs/tarp_v2_test_eval/
-runs/tarp_v2_training/
+dataset/
+!dataset/data.yaml
 
+# Runs temporary outputs (keep charts and csv summaries only)
+runs/**/*.pt
+runs/archive/
+runs/eval_test/*.jpg
+runs/eval_overhead/*.jpg
+runs/detect/*.jpg

@@ -26,10 +26,9 @@ app = Flask(__name__)
 
 # 模型權重路徑
 WEIGHTS_CANDIDATES = [
-    Path("weights/best_tarp_v2.pt").resolve(),
-    Path("weights/best_tarp_v1.pt").resolve(),
-    Path("runs/tarp_v2_training/weights/best.pt").resolve(),
-    Path("runs/tarp_training/weights/best.pt").resolve(),
+    Path("weights/best.pt").resolve(),
+    Path("weights/archive/best_tarp_v2.pt").resolve(),
+    Path("runs/train/weights/best.pt").resolve(),
 ]
 WEIGHTS_PATH = next((p for p in WEIGHTS_CANDIDATES if p.exists()), WEIGHTS_CANDIDATES[0])
 
@@ -38,10 +37,10 @@ model = YOLO(str(WEIGHTS_PATH))
 
 # 測試用範例圖片路徑
 SAMPLE_FILES = {
-    "covered": Path("dataset_tarp/test/images/17-OT_jpg.rf.841938541284d9b4a89e361079660515.jpg").resolve(),
-    "uncovered": Path("dataset_tarp/test/images/05-NT_jpg.rf.77c7e59f483774471f4c7c16f49a8ab5.jpg").resolve(),
-    "real_uncovered": Path("dataset_v2/raw_downloaded_57/-1-_png.rf.d5ee89bc015442bdd7019b0f1da86581.jpg").resolve(),
-    "real_covered": Path("dataset_v2/raw_downloaded_57/frame_000010_jpg.rf.a065d129db9d8f38fc647e8ad4640d90.jpg").resolve(),
+    "covered": Path("dataset/test/images/17-OT_jpg.rf.841938541284d9b4a89e361079660515.jpg").resolve(),
+    "uncovered": Path("dataset/test/images/05-NT_jpg.rf.77c7e59f483774471f4c7c16f49a8ab5.jpg").resolve(),
+    "real_uncovered": Path("dataset/raw_overhead_57/-1-_png.rf.d5ee89bc015442bdd7019b0f1da86581.jpg").resolve(),
+    "real_covered": Path("dataset/raw_overhead_57/frame_000010_jpg.rf.a065d129db9d8f38fc647e8ad4640d90.jpg").resolve(),
 }
 
 HTML_TEMPLATE = """

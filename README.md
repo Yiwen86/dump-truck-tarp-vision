@@ -45,36 +45,32 @@
 
 ---
 
-## 📁 專案目錄結構 (已全面整合優化)
+## 📁 專案目錄結構 (已全面整合優化：單一主線 + 完整封存)
 
 ```text
 dump-truck-tarp/
-├── dataset_v2/                       # 🔥 V2 融合資料集 (2,731 張，含真實俯視路況)
+├── dataset/                          # 統一為單一標準資料集 (2,731 張完整資料)
 │   ├── train/ & valid/ & test/       # 嚴格分層抽樣 (Stratified Split)
-│   ├── raw_downloaded_57/            # 57 張原始下載真實圖檔持久備份
-│   └── data.yaml                     # V2 類別與路徑設定檔
-├── dataset_tarp/                     # V1 帆布覆蓋專屬 YOLO 資料集 (2,674 張)
-├── weights/                          # 核心模型權重庫
-│   ├── best_tarp_v2.pt               # 🔥 最新 V2 模型 (mAP50=95.3%，優先載入)
-│   ├── best_tarp_v1.pt               # V1 基準模型 (mAP50=92.2%)
-│   ├── yolov8n.pt                    # YOLOv8 官方基底預訓練權重
-│   └── yolo26n.pt                    # 輔助/備用權重
-├── src/                              # 模組化工作流腳本
-│   ├── 01_import_and_convert_dataset.py # 資料集匯入與 4 轉 2 類別轉換腳本
-│   ├── 02_train_tarp_yolo.py        # V1 模型訓練腳本
-│   ├── 03_detect_tarp.py            # 帆布合規性端到端推論腳本 (自動優先載入 V2 權重)
-│   ├── 04_extract_unique_767.py     # 767 張不重複原始基底影像去重提煉腳本
-│   ├── 05_build_dataset_from_selected.py # 精華挑選圖片資料集構建腳本
-│   ├── 06_import_and_build_v2_dataset.py # 匯入外部真實路況並進行分層資料融合
-│   ├── 07_train_tarp_v2.py          # V2 模型 GPU 微調訓練腳本 (從 V1 接續微調)
-│   └── app_demo.py                  # 即時視覺化 Web 互動展示系統 (Flask)
-├── runs/
-│   ├── tarp_v2_training/            # V2 訓練日誌、曲線圖、混淆矩陣與權重
-│   ├── tarp_v2_test_eval/           # V2 測試集推論成果圖與 CSV 統計報表
-│   ├── v2_eval_real_overhead/       # V2 在真實俯視圖上的推論結果
-│   └── tarp_training/               # V1 歷史訓練日誌與權重
-├── curation_pool_767/                # 人工高品質圖片篩選池 (767 張)
-├── legacy_truck_presence/            # 📦 歷史封存：先前舊的「卡車存在性 (Presence)」資料與程式
+│   ├── raw_overhead_57/              # 57 張真實路況原始檔案持久備份
+│   └── data.yaml                     # 資料集標準設定檔
+├── weights/                          # 核心模型權重
+│   ├── best.pt                       # 🔥 唯一主力模型 (現役 V2, mAP50=95.3%)
+│   └── archive/                      # 過程權重歸檔 (best_tarp_v1.pt, yolo26n.pt 等)
+├── src/                              # 精簡清晰的主線工作流
+│   ├── train.py                      # 一鍵訓練 / 微調最新模型
+│   ├── detect.py                     # 一鍵推論判定與 CSV 報表導出
+│   ├── app_demo.py                   # Web 視覺化即時展示系統 (Flask)
+│   └── tools/                        # 輔助與挑圖工具 (extract_unique_767, build_dataset)
+├── runs/                             # 實驗與檢測結果 (層級化收納)
+│   ├── train/                        # 現役最優模型訓練日誌、曲線圖與混淆矩陣
+│   ├── eval_test/                    # 測試集推論成果圖與 CSV 報表
+│   ├── eval_overhead/                # 57 張真實俯視路況成果圖與 CSV 報表
+│   └── archive/                      # 舊版歷程結果封存
+├── archive/                          # 📦 完整保留所有歷史研發歷程 (中繼過程全數保留)
+│   ├── 01_legacy_truck_presence/     # 第一階段：卡車存在性判定 (線圈與舊模型)
+│   ├── 02_curation_pool_767/         # 767 張基底去重篩選池
+│   ├── 03_v1_dataset_backup/         # V1 早期獨立資料集備份
+│   └── history_scripts/              # 歷史演進腳本 (01, 02, 03, 06, 07 階段腳本)
 ├── pyproject.toml / uv.lock
 └── README.md
 ```
@@ -83,30 +79,29 @@ dump-truck-tarp/
 
 ## 🚀 執行方式
 
-### 1. 執行帆布合規性推論判定 (`src/03_detect_tarp.py`)
+### 1. 執行帆布合規性推論判定 (`src/detect.py`)
 ```bash
-# 批次判定指定資料夾內的圖片 (自動優先載入 weights/best_tarp_v2.pt)
-.venv\Scripts\python.exe src/03_detect_tarp.py --input <圖片資料夾路徑> --output_dir runs/my_results --device 0
+# 批次判定指定資料夾內的圖片 (預設自動調用 weights/best.pt)
+.venv\Scripts\python.exe src/detect.py --input <圖片資料夾路徑> --output_dir runs/detect --device 0
 
 # 測試預設測試集
-.venv\Scripts\python.exe src/03_detect_tarp.py --input dataset_tarp/test/images --output_dir runs/tarp_v2_test_eval --device 0
+.venv\Scripts\python.exe src/detect.py --input dataset/test/images --output_dir runs/eval_test --device 0
 
 # 測試真實路況 57 張俯視圖
-.venv\Scripts\python.exe src/03_detect_tarp.py --input dataset_v2/raw_downloaded_57 --output_dir runs/v2_eval_real_overhead --device 0
+.venv\Scripts\python.exe src/detect.py --input dataset/raw_overhead_57 --output_dir runs/eval_overhead --device 0
 ```
 
 ### 2. 啟動 Web 視覺化互動 DEMO (`src/app_demo.py`)
 ```bash
 .venv\Scripts\python.exe src/app_demo.py
 ```
-* 開啟瀏覽器訪問 `http://127.0.0.1:5000` 即可拖曳圖片或使用範例進行即時合規判定（系統自動優先調用 V2 權重）。
+* 開啟瀏覽器訪問 `http://127.0.0.1:5000` 即可拖曳圖片或使用範例進行即時合規判定（系統自動優先調用 `weights/best.pt`）。
 
-### 3. 一鍵重新微調 V2 模型 (`src/07_train_tarp_v2.py`)
+### 3. 一鍵重新微調/訓練模型 (`src/train.py`)
 ```bash
-.venv\Scripts\python.exe src/07_train_tarp_v2.py
+.venv\Scripts\python.exe src/train.py
 ```
-* 自動調用 NVIDIA RTX 4060 GPU。
-* 自動以 `weights/best_tarp_v1.pt` 為基底進行自適應領域微調，並產出 `weights/best_tarp_v2.pt`。
+* 自動調用 NVIDIA RTX 4060 GPU，基於 `dataset/data.yaml` 進行訓練，並自動更新產出 `weights/best.pt`。
 
 ---
 

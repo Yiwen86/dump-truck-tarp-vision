@@ -63,19 +63,19 @@ flowchart LR
 
 ---
 
-## 📁 四、資料集架構 (Datasets)
+## 📁 四、資料集架構 (Datasets: 單一標準資料集 + 完整歷史封存)
 
-專案建立了分層且具持久備份的資料集管線：
+專案現已全面收斂為單一標準資料集，歷史資料妥善歸檔：
 
-1. **[`dataset_v2/`](dataset_v2/) (現行 V2 訓練集，共 2,731 張影像)**：
+1. **[`dataset/`](dataset/) (現行唯一標準資料集，共 2,731 張影像)**：
    * `train/`：**1,917 張**（原 1,868 + 新 46 分層抽樣樣本）
    * `valid/`：**546 張**（原 534 + 新 11 分層抽樣樣本）
    * `test/`：**268 張**（獨立保留作為基準測試集）
-   * `raw_downloaded_57/`：完整保存外部匯入之 57 張原始原圖與標註檔，確保資料可溯源。
+   * `raw_overhead_57/`：完整保存外部匯入之 57 張原始原圖與標註檔，確保資料可溯源。
    * `data.yaml`：標準 YOLOv8 配置檔。
-2. **[`dataset_tarp/`](dataset_tarp/) (V1 基準資料集，共 2,674 張影像)**：
-   * 保留作為基準資料庫對照。
-3. **[`curation_pool_767/`](curation_pool_767/) (精華圖片篩選池，共 767 張去重影像)**：
+2. **[`archive/03_v1_dataset_backup/`](archive/03_v1_dataset_backup/)**：
+   * 完整封存早期 V1 獨立資料集（2,674 張），確保歷程不遺失。
+3. **[`archive/02_curation_pool_767/`](archive/02_curation_pool_767/) (精華圖片篩選池，共 767 張去重影像)**：
    * `previews/`：附帶綠框/紅框的視覺化快速預覽圖，供肉眼直觀篩選。
    * `selected/`：供使用者存放未來額外挑選出的精華影像，可隨時擴充訓練集。
 
@@ -85,28 +85,25 @@ flowchart LR
 
 | 檔案名稱 | 參數量 / 大小 | 狀態 | 說明 |
 | :--- | :---: | :---: | :--- |
-| [`weights/best_tarp_v2.pt`](weights/best_tarp_v2.pt) | 3.1M 參數 / 6.5 MB | **🔥 預設主力** | 最新 V2 領域微調權重，mAP50=95.3%，各腳本與 Web 優先載入 |
-| [`weights/best_tarp_v1.pt`](weights/best_tarp_v1.pt) | 3.0M 參數 / 6.5 MB | 基準存檔 | V1 基準模型，mAP50=92.2% |
-| [`weights/yolov8n.pt`](weights/yolov8n.pt) | 3.2M 參數 / 6.5 MB | 基底官方 | Ultralytics 官方 YOLOv8 Nano 預訓練權重 |
-| [`weights/yolo26n.pt`](weights/yolo26n.pt) | 2.6M 參數 / 5.5 MB | 輔助備用 | 先前車輛檢測輔助模型權重 |
+| [`weights/best.pt`](weights/best.pt) | 3.1M 參數 / 6.5 MB | **🔥 唯一主力** | 現役最優模型 (mAP50=95.3%)，各主線腳本與 Web 預設調用 |
+| [`weights/archive/`](weights/archive/) | -- | 歷程封存 | 收納 `best_tarp_v2.pt`、`best_tarp_v1.pt`、`yolov8n.pt`、`yolo26n.pt` 等過往權重 |
 
 ---
 
-## 🛠️ 六、完整模組化腳本清單 (`src/`)
+## 🛠️ 六、主線工作流腳本清單 (`src/`)
 
-專案腳本已全面重編為標準生命週期流水線：
+主線腳本精煉為 3 大核心工具，其餘輔助與歷史腳本歸檔：
 
 ```text
 src/
-├── 01_import_and_convert_dataset.py  # [前處理] 資料集匯入與 4 轉 2 類別轉換
-├── 02_train_tarp_yolo.py             # [訓練] V1 模型 GPU 訓練腳本
-├── 03_detect_tarp.py                 # [推論] 帆布合規性端到端推論 (預設優先使用 V2 權重)
-├── 04_extract_unique_767.py          # [篩選] 767 張基底去重原圖提煉與綠/紅框預覽產生
-├── 05_build_dataset_from_selected.py # [建集] 將挑選好的精華圖片轉為新資料集
-├── 06_import_and_build_v2_dataset.py # [V2升級] 匯入真實俯視影像並進行分層抽樣與資料融合
-├── 07_train_tarp_v2.py               # [V2訓練] 接續 V1 權重進行領域微調 (Domain Fine-Tuning)
-└── app_demo.py                       # [展示] 現代化 Flask Web 即時互動展示系統
+├── train.py                          # [核心] 一鍵訓練 / 微調最新模型 (自動輸出至 runs/train 與 weights/best.pt)
+├── detect.py                         # [核心] 一鍵端到端推論 (支援單圖/目錄/自動產出 CSV 報表)
+├── app_demo.py                       # [展示] 現代化 Flask Web 即時互動展示系統
+└── tools/                            # [工具]
+    ├── extract_unique_767.py         # 767 張基底去重原圖提煉工具
+    └── build_dataset_from_selected.py# 挑選圖片一鍵轉資料集工具
 ```
+*(歷史階段性腳本 01, 02, 03, 06, 07 全數保存於 [`archive/history_scripts/`](archive/history_scripts/))*
 
 ---
 
@@ -117,29 +114,26 @@ src/
 .venv\Scripts\python.exe src/app_demo.py
 ```
 * 開啟瀏覽器訪問 `http://127.0.0.1:5000`。
-* 支援**拖曳本機圖片、切換範例、即時調整信心度門檻（預設 0.30）**，並即時渲染綠框（合格）或紅框（違規）。
-* 系統啟動時已預設優先載入 `weights/best_tarp_v2.pt`。
+* 支援**拖曳本機圖片、切換 4 組快速範例（含台灣真實俯視路況）、即時調整信心度門檻（預設 0.30）**。
+* 系統啟動時已預設載入 `weights/best.pt`。
 
 ### 2. 執行批次 / 單張推論與報表導出
 ```bash
-# 批次判定指定資料夾內的圖片 (使用 GPU 加速)
-.venv\Scripts\python.exe src/03_detect_tarp.py --input <資料夾路徑> --output_dir runs/my_results --device 0
+# 批次判定指定資料夾內的圖片 (使用 GPU 加速，預設調用 weights/best.pt)
+.venv\Scripts\python.exe src/detect.py --input <資料夾路徑> --output_dir runs/detect --device 0
 
-# 測試 V2 在真實俯視樣本上的檢測成效
-.venv\Scripts\python.exe src/03_detect_tarp.py --input dataset_v2/raw_downloaded_57 --output_dir runs/v2_eval_real_overhead --device 0
+# 測試真實路況 57 張俯視樣本
+.venv\Scripts\python.exe src/detect.py --input dataset/raw_overhead_57 --output_dir runs/eval_overhead --device 0
 ```
 * 每次推論會在輸出目錄自動生成：
-  * 標註邊框圖檔 (`.jpg`)
+  * 標註邊框圖檔 (`pred_*.jpg`)
   * 合規性統計清單 (`tarp_compliance_summary.csv`)
 
-### 3. 一鍵重新微調 V2 模型
+### 3. 一鍵重新微調/訓練模型
 ```bash
-# 重新建置 V2 資料集
-.venv\Scripts\python.exe src/06_import_and_build_v2_dataset.py
-
-# 啟動 RTX 4060 GPU 進行領域微調
-.venv\Scripts\python.exe src/07_train_tarp_v2.py
+.venv\Scripts\python.exe src/train.py
 ```
+* 自動調用 RTX 4060 GPU 進行自適應領域微調，並自動將最優模型更新至 `weights/best.pt`。
 
 ---
 

@@ -101,3 +101,23 @@ runs/eval_desktop_overhead/
   - Recall 由 86.4% 提升至 **91.0% (+4.6%)**
   - 在 57 張真實俯視路況中，檢出率達 98.2%（56/57 正確檢出）。
 
+---
+
+## 🌟 2026-10-26: 架構全面收斂重構 (單一主線 + 歷程完整封存)
+
+### 1. 重構目標
+專案歷經三階段演進後，根目錄出現 `dataset_tarp` 與 `dataset_v2` 雙資料集、腳本 01~07 與多個 runs 混雜。為達到**「單純展現最後結果、中間過程全部保留」**之原則，將專案重構為**單一主線專案**，並將所有演進歷程歸檔至 `archive/`。
+
+### 2. 結構變更對照
+- **資料集統一**：`dataset_v2` 升格為唯一標準資料集 [`dataset/`](dataset/)（2,731 張影像），包含 `raw_overhead_57/` 持久備份；舊 `dataset_tarp/` 安全移入 [`archive/03_v1_dataset_backup/`](archive/03_v1_dataset_backup/)。
+- **權重庫聚焦**：最新 V2 模型設為主權重 [`weights/best.pt`](weights/best.pt)；歷史版本移至 [`weights/archive/`](weights/archive/)。
+- **主線腳本收斂**：
+  - 訓練主程式：[`src/train.py`](src/train.py)（取代 02, 07）
+  - 推論主程式：[`src/detect.py`](src/detect.py)（取代 03）
+  - 互動展示：[`src/app_demo.py`](src/app_demo.py)（更新對應路徑）
+  - 篩選工具：[`src/tools/`](src/tools/)
+  - 階段腳本：全數歸檔於 [`archive/history_scripts/`](archive/history_scripts/)
+- **成果目錄分層**：`runs/` 整理為 `train/`（最新訓練指標）、`eval_test/`、`eval_overhead/` 與 `archive/`。
+- **歷史隔離歸檔**：`legacy_truck_presence/` 移入 [`archive/01_legacy_truck_presence/`](archive/01_legacy_truck_presence/)；`curation_pool_767/` 移入 [`archive/02_curation_pool_767/`](archive/02_curation_pool_767/)。
+
+
