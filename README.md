@@ -2,6 +2,8 @@
 
 本專案專注於利用 **YOLOv8 深度學習神經網絡**，針對道路與路口監視器影像，即時精準判定**砂石車/卡車車斗上方「帆布是否有蓋好」**。
 
+> 📄 **專案完整進度報告**：請參閱 [專案現況與進度完整說明報告 (PROJECT_STATUS.md)](PROJECT_STATUS.md) 查閱完整 V1/V2 Benchmark、真實俯視樣本評估數據與架構全覽。
+
 ---
 
 ## 🎯 核心辨識類別 (Class Definitions)
@@ -108,6 +110,7 @@ dump-truck-tarp/
 
 ---
 
-## 📝 專案變更與重構歷程
-完整目錄整理、腳本新舊序號對照及權重整合細節，請參閱：
+## 📝 專案說明與重構歷程
+完整指標對照、目錄整理與腳本序號細節，請參閱：
+* [專案現況與進度完整說明報告 (PROJECT_STATUS.md)](PROJECT_STATUS.md)
 * [專案重構記錄 (REFACTORING_LOG.md)](REFACTORING_LOG.md)
